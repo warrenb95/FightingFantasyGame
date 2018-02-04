@@ -20,7 +20,7 @@ public class Player {
 	// Character items
 	private Items[] Items;
 	
-	// Construct the character
+	// Construct the character dwd
 	Player(){
 		initialSkill = skill = rollDice() + 6;
 		initialStamina = stamina = rollDice() + rollDice() + 12;
