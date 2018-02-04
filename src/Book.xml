@@ -567,4 +567,134 @@
 			<win pageNum="16"></win>
 		</battle>
 	</page>
+
+	<page pageNum="41" item="1">
+		<text>
+			Among the debris are the remains of several bodies. You manage to find a 
+			total of 20 Gold Pieces. Now you must leave the room, return to 42 and 
+			choose another route
+		</text>
+		<item name="gold" goldValue="20"></item>
+		<nextPage pageNum="42"></nextPage>
+	</page>
+
+	<page pageNum="42" options="1">
+		<text>
+			You walk to the comer then tum northwards. After a few metres, you find
+			 a passage leading to the east; the main passage ends at a door,
+			a few steps further on. To head east, tum to 165. To continue north,
+			turn to 52. Or you can return to 103 and choose another way.
+		</text>
+		<option pageNum="165"></option>
+		<option pageNum="52"></option>
+		<option pageNum="103"></option>
+	</page>
+
+	<page pageNum="43" battle="single">
+		<text>
+			The creature leaps at you.
+			GOBLIN	SKILL 6	STAMINA 6
+			If you win, you can look around. A quick search turns up a spear, 
+			a dagger and a bronze medallion marked with a G-rune. However, you
+			also find to your horror that the snack the Goblin was eating was part of 
+			a human arm! Now you may enter the mine; turn to 112.
+		</text>
+		<battle>
+			<enemy skill="6" stamina="6"></enemy>
+			<win pageNum="112"></win>
+		</battle>
+	</page>
+
+	<page pageNum="44" rollDice="1" damage="diceRoll">
+		<text>
+			Shaking with the mental effort, you try to follow the words on the scroll.
+			A strange power begins to well up inside you, but you trip over the complicated 
+			words and symbols - after all, you were not trained as a wizard. The power turns 
+			inwards and explodes inside your brain; you have lost the spell. Roll one die 
+			and lose that many STAMINA points. If you are still alive, turn to 6.
+		</text>
+		<nextPage pageNum="6"></nextPage>
+	</page>
+
+	<page pageNum="45" damage="rollDice">
+		<text>
+			You are not quick enough to avoid the energy bolt. Roll one die and lose that many 
+			STAMINA points. If you are still alive, turn to 4 and continue the battle.
+		</text>
+		<nextPage pageNum="4"></nextPage>
+	</page>
+
+	<page pageNum="46" battle="single">
+		<text>
+			You just manage to dodge the mandibles of an immense Giant Beetle! It may have 
+			missed you this time, but it's certainly going to have another try.
+
+			GIANT BEETLE	SKILL 9 STAMINA 16
+
+			If you defeat the monster, turn to 61
+		</text>
+		<battle>
+			<enemy skill="9" stamina="16"></enemy>
+			<win pageNum="61"></win>
+		</battle>
+	</page>
+
+	<page pageNum="47" options="1">
+		<text>
+			The door opens into a passage heading south-west. To go down the passage, 
+			turn to 108. To continue northwards, turn to 83
+		</text>
+		<option pageNum="108"></option>
+		<option pageNum="83"></option>
+	</page>
+
+	<page pageNum="48" options="1">
+		<text>
+			You look closely at the brazier, but you can't see anything unusual.
+			If you want to carry on prising the gems free, tum to 109. Otherwise you 
+			may leave here; return to 112 and choose another way.
+		</text>
+		<option pageNum="109"></option>
+		<option pageNum="112"></option>
+	</page>
+
+	<page pageNum="49" battle="single">
+		<text>
+			You burst through the door into a small room that is occupied by two Goblins. 
+			They move to attack you with shrill cries.
+		</text>
+		<text>
+			First GOBLIN	SKILL 5	STAMINA 6
+			Second GOBLIN	SKILL 5	STAMINA 5
+		</text>
+		<text>
+			Each makes a separate attack on you every round, but you must choose which of 
+			the two you will attack. Fight your chosen opponent as normal.
+			Throw again for your fight with the second Goblin: if you win, the Goblin
+			is not wounded, but you have held him off for a round; if you lose, he injures 
+			you in the usual way! If you defeat both Goblins, turn to 118.
+		</text>
+		<battle>
+			<enemy skill="5" stamina="6"></enemy>
+			<enemy skill="5" stamina="5"></enemy>
+		</battle>
+	</page>
+
+	<page pageNum="50" battle="1">
+		<text>
+			You hit the icy water with a shock and start to swim for the other side. You have 
+			swum scarcely a couple of strokes when something rises from the water in front of you: 
+			a massive cross-bred monster with a human face, an
+			octopus body and two tentacles, each of which grips a weapon. You must
+			fight, with your Attack Strength reduced by 2 points because you have to tread water.
+
+			MAN-OCTOPUS	SKILL 6 STAMINA 7
+
+			If you win, you reach the other side safely and can follow Galthazzeth down the tunnel; turn to 114.
+		</text>
+		<battle skill="-2">
+			<enemy skill="6" stamina="7"></enemy>
+		</battle>
+	</page>
+
 </book>
