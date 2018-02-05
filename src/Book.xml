@@ -124,7 +124,7 @@
         <item name="Gem" goldValue="25"></item>
 	</page>
 	
-	<page pageNum="6" diceRoll="2">
+	<page pageNum="6" rollXDice="2">
         <text>
             From your hiding place you can hear Galthazzeth shouting orders in an unknown language. 
             Even though the spell failed, your attempt to cast it has given you away. You grip your 
@@ -399,7 +399,7 @@
 		</battle>
 	</page>
 	
-	<page pageNum="28" diceRoll="1">
+	<page pageNum="28" rollXDice="1">
 		<text>
 			Roll one die. On 1 or 2, turn to 81. On 3 or 4, turn to 113.
 			On 5 or 6, turn to 18.
@@ -605,7 +605,7 @@
 		</battle>
 	</page>
 
-	<page pageNum="44" rollDice="1" damage="diceRoll">
+	<page pageNum="44" rollStat="stamina">
 		<text>
 			Shaking with the mental effort, you try to follow the words on the scroll.
 			A strange power begins to well up inside you, but you trip over the complicated 
@@ -614,6 +614,7 @@
 			and lose that many STAMINA points. If you are still alive, turn to 6.
 		</text>
 		<nextPage pageNum="6"></nextPage>
+		<stamina value="-1"></stamina>
 	</page>
 
 	<page pageNum="45" damage="rollDice">
@@ -715,7 +716,7 @@
 		<option pageNum="42"></option>
 	</page>
 	
-	<page pageNum="53" diceRoll="2">
+	<page pageNum="53" rollXDice="2">
 		<text>
 			You try the door warily. It isn't locked - the bandit must have picked it. 
 			As you push open the door, though, a huge pair of clattering mandibles shoots out 
@@ -747,7 +748,7 @@
 		<unlucky pageNum="194"></unlucky>
 	</page>
 	
-	<page pageNum="56" diceRoll="1">
+	<page pageNum="56" rollXDice="1">
 		<text>
 			The spell is too strong for you. Roll one die. If you roll 1--4, deduct
 			1 point from your SKILL; if you roll 5 or 6, lose 2 SKILL points!
