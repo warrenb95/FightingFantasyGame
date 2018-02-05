@@ -3,6 +3,10 @@
  */
 
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Player {
@@ -16,6 +20,8 @@ public class Player {
 	private int initialSkill;
 	private int initialStamina;
 	private int initialLuck;
+	
+	private List<Item> backpack = new ArrayList<>();
 	
 	// Construct the character
 	Player(){
@@ -147,6 +153,27 @@ public class Player {
 			break;
 		}
 			
+	}
+	
+	// Pick up the item and see if it buffs/debuff player stats before adding it to backpack
+	public void pickUpItem(List<Item> itemList) {
+		for (Item item : itemList) {
+			
+			Map<String, Integer> itemAttribute = item.getAttribute();
+			
+			// Check if the item attribute map is empty
+			if(itemAttribute.isEmpty()) {
+				// Get the key from the map
+				String key = (String) itemAttribute.keySet().toArray()[0];
+				// Get the value
+				int value = itemAttribute.get(key);
+				
+				// Change the players stats
+				changeStat(key, value);
+			}
+			
+			backpack.add(item);
+		}
 	}
 	
 }
