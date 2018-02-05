@@ -385,6 +385,13 @@ public class Page {
 		}
 	}
 	
+	public void gainStat(Element page, Player player) {
+		String stat =  page.getAttributeValue("gain");
+		int value = Integer.parseInt(page.getChild(stat).getAttributeValue("value"));
+		
+		player.changeStat(stat, value);
+	}
+	
 	// Query page for next page attribute
 	public boolean hasNextPage(Element page) {
 		String hasAttribute = page.getChild("nextPage").getAttributeValue("pageNum", "none");
