@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -283,9 +284,9 @@ public class Page {
 		return victory;
 	}
 	
-	// Query page for dice roll attribute
-	public boolean hasDiceRoll(Element page) {
-		String hasAttribute = page.getAttributeValue("diceRoll", "none");
+	// Query page for rollXDice attribute
+	public boolean hasRollXDice(Element page) {
+		String hasAttribute = page.getAttributeValue("rollXDice", "none");
 		
 		if (!hasAttribute.equals("none")) {
 			return true;
@@ -294,12 +295,61 @@ public class Page {
 		}
 	}
 	
-	// This handles the dice roll of the page
-	public void diceRoll(Element page) {
-		int diceAmount = Integer.parseInt(page.getAttributeValue("diceRoll"));
-		int rolls = 0;
+	// This handles the dice roll to find the next page
+	public String diceRollForNextPage(Element page, Player player) {
+		int rollAmount = Integer.parseInt(page.getAttributeValue("rollXDice"));
+		int diceValue = 0;
 		
-		// Stopped here I need to comment all this code ASAP before I forget.
+		// Player rolls x amount of dice
+		for (int x = 0; x < rollAmount; x++) {
+			diceValue += player.rollDice();
+		}
+		
+		// Find out the next page using diceValue
+		List<Element> rollList = page.getChildren("roll");
+		
+		for (Element roll : rollList) {
+			if (roll.getAttributeValue("value") == "<skill") {
+				if (diceValue <= player.getSkill()) {
+					nextPage = roll.getAttributeValue("pageNume");
+				}
+			} else if (roll.getAttributeValue("value") == ">skill") {
+				if (diceValue >= player.getSkill()) {
+					nextPage = roll.getAttributeValue("pageNume");
+				} 
+			} else {
+				String[] stringValues = roll.getAttributeValue("value").split(",");
+				int[] integerValues = Arrays.stream(stringValues).mapToInt(Integer::parseInt).toArray();
+				
+				for (int value : integerValues) {
+					if (diceValue == value) {
+						nextPage = roll.getAttributeValue("pageNume");
+					}
+				}
+				
+			}
+		}
+		
+		return nextPage;
+	}
+	
+	// Has a dice roll on the page
+	public boolean hasRollStat(Element page, Player player) {
+		String hasAttribute = page.getAttributeValue("rollStat", "none");
+				
+		if (!hasAttribute.equals("none")) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	// Handle the dice roll on the page
+	public void handleRollStat(Element page, Player player) {
+		String stat =  page.getAttributeValue("rollStat");
+		int value = Integer.parseInt(page.getChild(stat).getAttributeValue("value"));
+		
+		player.changeStat(stat, value);
 	}
 	
 	// Query page for items attribute
