@@ -117,10 +117,8 @@
             Now return along the passage to 42 and choose another route.
         </text>
         <nextPage pageNum="42"></nextPage>
-        <item name="Jewelled Sword">
-            <attribute stat="skill">
-            	<skill value="1"></skill>
-            </attribute>
+        <item name="Jewelled Sword" attribute="skill">
+        	<skill value="1"></skill>
         </item>
         <item name="Gem" goldValue="25"></item>
         <item name="Gem" goldValue="25"></item>
