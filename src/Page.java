@@ -3,7 +3,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import org.jdom2.Document;
@@ -361,6 +363,41 @@ public class Page {
 		}else {
 			return false;
 		}
+	}
+	
+	// Gets the items off the page
+	public List<Item> getItems(Element page) {
+		List<Element> items = page.getChildren("item");
+		
+		// Create a list of Item objects
+		List<Item> itemList = new ArrayList<>();
+		
+		for (Element item : items) {
+			/* 
+			 * The attributeMap stores the stat as the key and the
+			 * the buff/debuff as the value 
+			*/
+			Map<String, Integer> attributeMap = new HashMap<String, Integer> ();
+			
+			// Get the values from the page
+			String itemName = item.getAttributeValue("name");
+			int itemGoldValue = Integer.parseInt(item.getAttributeValue("goldValue", "none"));
+			String itemAttribute = item.getAttributeValue("attribute", "none");
+			
+			// if the item has buff/debuff create the hashmap and put it in the attributeMap
+			if (!itemAttribute.equals("none")) {
+				attributeMap.put(itemAttribute, Integer.parseInt(item.getChild(itemAttribute).getAttributeValue("value")));
+				
+				// Finally add all back to the itemList List of Item objects
+				itemList.add(new Item(itemName, itemGoldValue, attributeMap));
+			} else {
+				// Finally add all back to the itemList List of Item objects
+				itemList.add(new Item(itemName, itemGoldValue));
+			}
+		}
+			
+		return itemList;
+		
 	}
 	
 	// Query page for constraint attribute
