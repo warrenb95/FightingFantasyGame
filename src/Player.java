@@ -17,9 +17,6 @@ public class Player {
 	private int initialStamina;
 	private int initialLuck;
 	
-	// Character items
-	private Items[] Items;
-	
 	// Construct the character
 	Player(){
 		initialSkill = skill = rollDice() + 6;
@@ -135,6 +132,21 @@ public class Player {
 		reader.close();
 		
 		return ans;
+	}
+	
+	public void changeStat(String stat, int num) {
+		switch (stat) {
+		case "skill":
+			skill += num;
+			break;
+		case "stamina":
+			stamina += num;
+			break;
+		case "luck":
+			luck += num;
+			break;
+		}
+			
 	}
 	
 }
