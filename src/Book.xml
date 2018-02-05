@@ -696,5 +696,65 @@
 			<enemy skill="6" stamina="7"></enemy>
 		</battle>
 	</page>
+	
+	<page pageNum="51">
+		<text>
+			You find nothing of interest or value. Return to 8 and make another choice.
+		</text>
+		<nextPage pageNum="8"></nextPage>
+	</page>
+	
+	<page pageNum="52" options="1">
+		<text>
+			The passage continues for a short distance before ending at a door. To open the 
+			door, turn to 32. To listen at it before entering, turn to 63.
+			Or you can return to 42
+		</text>
+		<option pageNum="32"></option>
+		<option pageNum="63"></option>
+		<option pageNum="42"></option>
+	</page>
+	
+	<page pageNum="53" diceRoll="2">
+		<text>
+			You try the door warily. It isn't locked - the bandit must have picked it. 
+			As you push open the door, though, a huge pair of clattering mandibles shoots out 
+			at you! Roll two dice. If the total rolled is less than or equal to your SKILL, 
+			turn to 46. If it is higher, turn to 164.
+		</text>
+		<roll pageNum="46" value="<skill"></roll>
+		<roll pageNum="164" value=">skill"></roll>
+	</page>
+	
+	<page pageNum="54" options="1">
+		<text>
+			This seems to be the trigger point for some kind of mechanism;
+			although you fiddle with it for some time, you can't make it do anything.
+			Now you may continue north (turn to 20) or
+			eastwards, back to the crossroads (turn to 112).
+		</text>
+		<option pageNum="20"></option>
+		<option pageNum="112"></option>
+	</page>
+	
+	<page pageNum="55" testLuck="1">
+		<text>
+			You shout a war-cry and leap up spectacularly from your hiding-place! 
+			Test your Luck. If you are Lucky, turn to 86. If you are
+			Unlucky, turn to 194.
+		</text>
+		<lucky pageNum="86"></lucky>
+		<unlucky pageNum="194"></unlucky>
+	</page>
+	
+	<page pageNum="56" diceRoll="1">
+		<text>
+			The spell is too strong for you. Roll one die. If you roll 1--4, deduct
+			1 point from your SKILL; if you roll 5 or 6, lose 2 SKILL points!
+			Turn to 4 to continue the battle.
+		</text>
+		<roll pageNum="4" skill="-1" value="1,2,3,4"></roll>
+		<roll pageNum="4" skill="-2" value="5,6"></roll>
+	</page>
 
 </book>
