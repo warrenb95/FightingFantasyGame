@@ -118,7 +118,9 @@
         </text>
         <nextPage pageNum="42"></nextPage>
         <item name="Jewelled Sword">
-            <attribute skill="1"></attribute>
+            <attribute stat="skill">
+            	<skill value="1"></skill>
+            </attribute>
         </item>
         <item name="Gem" goldValue="25"></item>
         <item name="Gem" goldValue="25"></item>
