@@ -13,6 +13,9 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
+/*
+ * This is the page handler
+ */
 
 public class Page {
 	
@@ -44,6 +47,7 @@ public class Page {
 		return nextPage;
 	}
 	
+	// Finds the page to be displayed and returns it
 	public Element findPage(String nextPage) {
 		SAXBuilder builder = new SAXBuilder();
 		
@@ -74,16 +78,16 @@ public class Page {
 		return page;
 	}
 	
+	// Prints the text of the current page
 	public void printText(Element page) {
 		List<Element> text = page.getChildren("text");
 		
 		for (Element t : text) {
 			System.out.println(t.getText());
-			
-			System.out.println("###################");
 		}
 	}
 	
+	// Query page for test luck attribute
 	public boolean hasTestLuck(Element page) {
 		String hasAttribute = page.getAttributeValue("testLuck", "none");
 		
@@ -94,6 +98,7 @@ public class Page {
 		}
 	}
 	
+	// Handles the test luck on the page
 	public String testLuck(Element page, Player player) {
 		
 		if (player.testLuck()) {
@@ -105,6 +110,7 @@ public class Page {
 		return nextPage;
 	}
 	
+	// Query page for options attribute
 	public boolean hasOptions(Element page) {
 		String hasAttribute = page.getAttributeValue("options", "none");
 		
@@ -115,6 +121,7 @@ public class Page {
 		}
 	}
 	
+	// Finds all the options on the page and adds them to a list
 	public List<String> findOptions(Element page) {
 		List<Element> optionElements = page.getChildren("option");
 		
@@ -127,6 +134,7 @@ public class Page {
 		return options;
 	}
 	
+	// Get the user to pick an option from the list
 	public String pickOption(Element page) {
 		
 		List<String> options = findOptions(page);
@@ -146,6 +154,7 @@ public class Page {
 		
 		boolean incorrect = true;
 		
+		// Validate the answer
 		while(incorrect) {
 			for (String option : options) {
 				if(choice.equals(option)) {
@@ -161,6 +170,7 @@ public class Page {
 		return choice;
 	}
 	
+	// Query page for damage attribute
 	public boolean hasTakeDamage(Element page) {
 		String hasAttribute = page.getAttributeValue("damage", "none");
 		
@@ -171,6 +181,7 @@ public class Page {
 		}
 	}
 	
+	// Player takes the damage
 	public void takeDamage(Element page, Player player) {
 		int damage = Integer.parseInt(page.getAttributeValue("damage"));
 		
@@ -179,6 +190,7 @@ public class Page {
 		player.takeDamage(damage);
 	}
 	
+	// Query page for battle attribute
 	public boolean hasBattle(Element page) {
 		String hasAttribute = page.getAttributeValue("battle", "none");
 		
@@ -189,6 +201,7 @@ public class Page {
 		}
 	}
 	
+	// Finds the enemies and return a list of Enemy objects
 	public List<Enemy> findEnemies(Element page){
 		
 		List<Element> enemyElements =  page.getChild("battle").getChildren("enemy");
@@ -208,6 +221,7 @@ public class Page {
 		
 	}
 	
+	// Handles the battle on the page and calls the battle class to deal with it 
 	public boolean battle(Element page, Player player) {
 		String battleEnemy = page.getAttributeValue("battle", "single");
 		int turns = 0;
@@ -219,8 +233,10 @@ public class Page {
 		
 		Battle battle = new Battle();
 		
+		// Set the default battleType to default
 		String battleType = "default";
 		
+		// Find and set the battleType
 		String hasTurns = page.getChild("battle").getAttributeValue("turns", "none");
 		if (!hasTurns.equals("none")) {
 			turns = Integer.parseInt(page.getChild("battle").getAttributeValue("turns"));
@@ -230,18 +246,15 @@ public class Page {
 		String hasConsecutiveWins = page.getChild("battle").getAttributeValue("wins", "none");
 		if (!hasConsecutiveWins.equals("none")) {
 			wins = Integer.parseInt(page.getChild("battle").getAttributeValue("wins"));
-			battleType = "consecutiveWins";
+			battleType = "wins";
 		}
 		
+		// Calls Battle class depending on battleType
 		switch (battleType) {
 		case "default":
 			if (battleEnemy.equals("single") || battleEnemy.equals("seperate")) {
 				
-				System.out.println("before battle call, victory:  " + victory);
-				
 				victory = battle.fightSingle(player, enemies, battleType);
-				
-				System.out.println("after battle call, victory:  " + victory);
 				
 			} else if (battleEnemy.equals("together")) {
 				
@@ -270,6 +283,7 @@ public class Page {
 		return victory;
 	}
 	
+	// Query page for dice roll attribute
 	public boolean hasDiceRoll(Element page) {
 		String hasAttribute = page.getAttributeValue("diceRoll", "none");
 		
@@ -280,6 +294,15 @@ public class Page {
 		}
 	}
 	
+	// This handles the dice roll of the page
+	public void diceRoll(Element page) {
+		int diceAmount = Integer.parseInt(page.getAttributeValue("diceRoll"));
+		int rolls = 0;
+		
+		// Stopped here I need to comment all this code ASAP before I forget.
+	}
+	
+	// Query page for items attribute
 	public boolean hasItems(Element page) {
 		String hasAttribute = page.getAttributeValue("item", "none");
 		
@@ -290,6 +313,7 @@ public class Page {
 		}
 	}
 	
+	// Query page for constraint attribute
 	public boolean hasConstraint(Element page) {
 		String hasAttribute = page.getAttributeValue("constraint", "none");
 		
@@ -300,6 +324,7 @@ public class Page {
 		}
 	}
 	
+	// Query page for gain attribute
 	public boolean hasGainStat(Element page) {
 		String hasAttribute = page.getAttributeValue("gainStat", "none");
 		
@@ -310,6 +335,7 @@ public class Page {
 		}
 	}
 	
+	// Query page for next page attribute
 	public boolean hasNextPage(Element page) {
 		String hasAttribute = page.getChild("nextPage").getAttributeValue("pageNum", "none");
 		
@@ -320,10 +346,12 @@ public class Page {
 		}
 	}
 	
+	// Finds the next page if there is nothing to do on the page
 	public void findNextPage(Element page) {
 		nextPage = page.getChild("nextPage").getAttributeValue("pageNum");
 	}
 	
+	// Finds the next page if there has been a battle on the page
 	public String battleNextPage(Element page, boolean victory) {
 		String nextPage;
 		if (victory) {

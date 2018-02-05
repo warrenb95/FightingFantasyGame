@@ -6,15 +6,18 @@ import java.util.Scanner;
  */
 public class Battle {
 	
+	// Fighting a single enemy or multiple enemies in turn 
 	public boolean fightSingle(Player player, List<Enemy> enemies, String battleType) {
 		boolean victory = false;
-			
+		
+		// For each enemy call the default battle method to handle the battle
 		for (Enemy enemy : enemies) {
 			victory = battleDefault(player, enemy);
 		}
 		return victory;
 	}
 	
+	// Fight single/multiple enemies in turn with the use of turns or consecutive wins
 	public boolean fightSingle(Player player, List<Enemy> enemies, String battleType, int turns) {
 		boolean victory = false;
 		
@@ -30,11 +33,10 @@ public class Battle {
 			}
 		}
 		
-		System.out.println("inside fightSingle call, victory:  " + victory);
-		
 		return victory;
 	}
 	
+	// If the page requests that the user fight multiple enemies as one
 	public boolean fightTogether(Player player, List<Enemy> enemies, String battleType) {
 		boolean victory = false;
 		int enemySkill = 0;
@@ -42,6 +44,7 @@ public class Battle {
 		
 		if (battleType.equals("default")) {
 			
+			// Create a super enemy using the stats fed in by the enemies list
 			for (Enemy enemy : enemies) {
 				enemySkill += enemy.getSkill();
 				enemyStamina += enemy.getStamina();
@@ -49,36 +52,31 @@ public class Battle {
 			
 			Enemy newEnemy = new Enemy(enemySkill, enemyStamina);
 			
+			// Commence the battle
 			victory = battleDefault(player, newEnemy);
 		}
 		return victory;
 	}
 	
+	// If the page requests that the user fight multiple enemies as one
 	public boolean fightTogether(Player player, List<Enemy> enemies, String battleType, int turns) {
 		boolean victory = false;
 		int enemySkill = 0;
 		int enemyStamina = 0;
 		
+		// Create a super enemy using the stats fed in by the enemies list
+		for (Enemy enemy : enemies) {
+			enemySkill += enemy.getSkill();
+			enemyStamina += enemy.getStamina();
+		}
+		Enemy newEnemy = new Enemy(enemySkill, enemyStamina);
+		
 		if (battleType.equals("turns")) {
-			
-			for (Enemy enemy : enemies) {
-				enemySkill += enemy.getSkill();
-				enemyStamina += enemy.getStamina();
-			}
-			
-			Enemy newEnemy = new Enemy(enemySkill, enemyStamina);
-			
+			// Battle turns
 			victory = battleTurns(player, newEnemy, turns);
 			
 		} else if (battleType.equals("wins")) {
-			
-			for (Enemy enemy : enemies) {
-				enemySkill += enemy.getSkill();
-				enemyStamina += enemy.getStamina();
-			}
-			
-			Enemy newEnemy = new Enemy(enemySkill, enemyStamina);
-			
+			// Battle consecutive wins
 			victory = battleWins(player, newEnemy, turns);
 		}
 		
@@ -86,14 +84,13 @@ public class Battle {
 	}
 	
 	public boolean battleDefault(Player player, Enemy enemy) {
-		//add the code to fight here
-		//this will be very long
+		
 		Scanner reader = new Scanner(System.in);
 		boolean victory = true;
 		
 		while (player.isAlive() && enemy.isAlive()) {
-			int enemySkill = enemy.getSkill() + enemy.rollDice() + enemy.rollDice();
 			
+			int enemySkill = enemy.getSkill() + enemy.rollDice() + enemy.rollDice();
 			int playerSkill = player.getSkill() + player.rollDice() + player.rollDice();
 			
 			System.out.printf("[Player skill: %s]\t[Player stamina: %s]\n", playerSkill, player.getStamina());
@@ -102,7 +99,6 @@ public class Battle {
 			if (playerSkill > enemySkill) {
 				
 				System.out.println("You have won the round!!");
-				
 				System.out.print("Use luck to do more damage: y/n ");
 				String ans = reader.nextLine();
 				
@@ -120,7 +116,6 @@ public class Battle {
 			}else if (playerSkill < enemySkill){
 				
 				System.out.println("You have lost the round!!");
-				
 				System.out.print("Use luck to take less damage: y/n ");
 				String ans = reader.nextLine();
 				
@@ -142,47 +137,50 @@ public class Battle {
 			System.out.println("\n\n\n");
 		}
 		
-		reader.close();
-		
 		return victory;
 	}
 	
 
 	// This version takes in the turn @param as a constraint of the fight
 	public boolean battleTurns(Player player, Enemy enemy, int turns) {
-		//add the code to fight here
-		//this will be very long
+		
 		Scanner reader = new Scanner(System.in);
 		int battleTurns = 0;
 		
 		boolean victory = true;
 		
-		while (player.isAlive() && enemy.isAlive() && battleTurns > turns) {
-			int enemySkill = enemy.getSkill() + enemy.rollDice() + enemy.rollDice();
+		while (player.isAlive() && enemy.isAlive() && battleTurns < turns) {
 			
+			int enemySkill = enemy.getSkill() + enemy.rollDice() + enemy.rollDice();
 			int playerSkill = player.getSkill() + player.rollDice() + player.rollDice();
 			
 			if (playerSkill > enemySkill) {
-				System.out.print("Use luck: y/n ");
+				System.out.println("You have won the round!!");
+				System.out.print("Use luck to do more damage: y/n ");
 				String ans = reader.nextLine();
 				
 				if (ans.equals("y")) {
 					if (player.testLuck()) {
+						System.out.println("Lucky, you inflict 2 extra damage!");
 						enemy.takeDamage(4);
 					}else {
+						System.out.println("Unluck, you only inflict 1 damage");
 						enemy.takeDamage(1);
 					}
 				}else {
 					enemy.takeDamage(2);
 				}
 			}else if (playerSkill < enemySkill){
-				System.out.print("Use luck: y/n ");
+				System.out.println("You have lost the round!!");
+				System.out.print("Use luck to take less damage: y/n ");
 				String ans = reader.nextLine();
 				
 				if (ans.equals("y")) {
 					if (player.testLuck()) {
+						System.out.println("Lucky, you only recieve 1 damage");
 						player.takeDamage(1);
 					}else {
+						System.out.println("Unlucky, you recieve 4 damage");
 						player.takeDamage(4);
 					}
 				}else {
@@ -194,48 +192,53 @@ public class Battle {
 			
 			battleTurns++;
 		}
-		reader.close();
 		
 		return victory;
 	}
 	
 	// This version takes in the turn @param as a constraint of the fight
 	public boolean battleWins(Player player, Enemy enemy, int wins) {
-		//add the code to fight here
-		//this will be very long
+		
 		Scanner reader = new Scanner(System.in);
 		int playerWins = 0;
 		int enemyWins = 0;
 		boolean victory = false;
 		
-		while (player.isAlive() && enemy.isAlive() && playerWins > wins && playerWins > wins) {
-			int enemySkill = enemy.getSkill() + enemy.rollDice() + enemy.rollDice();
+		while (player.isAlive() && enemy.isAlive() && playerWins > wins && playerWins <= wins) {
 			
+			int enemySkill = enemy.getSkill() + enemy.rollDice() + enemy.rollDice();
 			int playerSkill = player.getSkill() + player.rollDice() + player.rollDice();
 			
 			if (playerSkill > enemySkill) {
-				System.out.print("Use luck: y/n ");
-				String ans = reader.nextLine();
 				playerWins++;
+				System.out.println("You have won the round!!");
+				
+				System.out.print("Use luck to do more damage: y/n ");
+				String ans = reader.nextLine();
 				
 				if (ans.equals("y")) {
 					if (player.testLuck()) {
+						System.out.println("Lucky, you inflict 2 extra damage!");
 						enemy.takeDamage(4);
 					}else {
+						System.out.println("Unluck, you only inflict 1 damage");
 						enemy.takeDamage(1);
 					}
 				}else {
 					enemy.takeDamage(2);
 				}
 			}else if (playerSkill < enemySkill){
-				System.out.print("Use luck: y/n ");
+				System.out.println("You have lost the round!!");
+				System.out.print("Use luck to take less damage: y/n ");
 				String ans = reader.nextLine();
 				enemyWins++;
 				
 				if (ans.equals("y")) {
 					if (player.testLuck()) {
+						System.out.println("Lucky, you only recieve 1 damage");
 						player.takeDamage(1);
 					}else {
+						System.out.println("Unlucky, you recieve 4 damage");
 						player.takeDamage(4);
 					}
 				}else {
@@ -246,7 +249,6 @@ public class Battle {
 			}
 			
 		}
-		reader.close();
 		
 		if (playerWins == 2) {
 			victory = true;
