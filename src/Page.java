@@ -333,7 +333,7 @@ public class Page {
 		return nextPage;
 	}
 	
-	// Has a dice roll on the page
+	// Has a roll stat on the page
 	public boolean hasRollStat(Element page, Player player) {
 		String hasAttribute = page.getAttributeValue("rollStat", "none");
 				
