@@ -92,7 +92,7 @@
         <option pageNum="48"></option>
 	</page>
 	
-	<page pageNum="4" battle="1">
+	<page pageNum="4" battle="single">
         <text>
             You have no option but to fight Galthazzeth. 
             
@@ -101,7 +101,7 @@
             If he wins two consecutive rounds of combat, turn to 28.
             If you win, turn to 174.
         </text>
-        <battle consecutiveWins="2">
+        <battle wins="2">
         	<enemy stamina="15" skill="10"></enemy>
         	<win pageNum="174"></win>
             <lose pageNum="28"></lose>
@@ -202,12 +202,13 @@
         <option pageNum="112"></option>
     </page>
     
-    <page pageNum="13" >
+    <page pageNum="13" galthazzeth="stamina">
         <text>
             Your weapon hits Galthazzeth before he can finish casting his spell, and a bolt of blue energy 
             spirals harmlessly to the floor. You draw your sword and leap at him! Turn to 4, 
             deducting 2 points from Galthazzeth's STAMINA.
         </text>
+        <galStamina value="-2"></gStamina>
         <nextPage pageNum="4"></nextPage>
     </page>
     
@@ -223,7 +224,7 @@
     	<option pageNum="112"></option>
     </page>
     
-    <page pageNum="15" battle="1">
+    <page pageNum="15" battle="single">
     	<text>
     		The stairs lead down to a short passage, ending at a wooden door.
     	</text>
@@ -257,7 +258,7 @@
 		<nextPage pageNum="112"></nextPage>
 	</page>
 	
-	<page pageNum="17" battle="1">
+	<page pageNum="17" battle="single">
 		<text>
 			As you dodge away from the animated whip, a door flies open. Into the room st rides a huge, 
 			ugly Goblin wearing shabby ceremonial robes. This must be the Shaman who serves the temple 
@@ -344,7 +345,7 @@
 		<nextPage pageNum="42"></nextPage>
 	</page>
 	
-	<page pageNum="25" battle="1">
+	<page pageNum="25" battle="single">
 		<text>
 			You have surprised the Antman and manage to close with it before it can
 			use its acid spray.
@@ -362,7 +363,7 @@
 		</battle>
 	</page>
 	
-	<page pageNum="26">
+	<page pageNum="26" battle="single">
 		<text>
 			The Giant Beetle is busy eating and doesn't seem to take any notice as you approach 
 			it warily. Roll 2 dice. If the total rolled is less than
@@ -376,12 +377,13 @@
 		<text>
 			If you win, turn to 61.
 		</text>
-		<battle rollDice="2" rollToDamage="2">
+		<battle rollToDamage="2">
+			<roll value="<skill" damage="2"></roll>
 			<enemy skill="9" stamina="16"></enemy>
 		</battle>
 	</page>
 	
-	<page pageNum="27" battle="1">
+	<page pageNum="27" battle="single">
 		<text>
 			You lash out at the Ghost with your magic sword.
 			Resolve one round of combat. 
@@ -441,7 +443,7 @@
 		<nextPage pageNum="105"></nextPage>
 	</page>
 	
-	<page pageNum="32" damage="2" battle="1">
+	<page pageNum="32" damage="2" battle="single">
 		<text>
 			You ram the door with your shoulder. It doesn't open, but one of 
 			its slats bounces back and hits you! Deduct 2 points from your STAMINA. 
@@ -552,7 +554,7 @@
 		<dontHaveItem pageNum="185"></dontHaveItem>
 	</page>
 	
-	<page pageNum="40" battle="1">
+	<page pageNum="40" battle="single">
 		<text>
 			You twist to one side, and the bolt of fire just misses you. You can smell your 
 			armour scorching as the missile grazes your shoulder, but you are unharmed. 
@@ -562,7 +564,7 @@
 			GOBLIN SHAMAN	SKILL 6	STAMINA 6
 			If he wins two consecutive rounds, turn to 88. If you win, turn to 16.
 		</text>
-		<battle consecutiveTurns="2">
+		<battle wins="2">
 			<enemy skill="6" stamina="6"></enemy>
 			<win pageNum="16"></win>
 		</battle>
@@ -681,7 +683,7 @@
 		</battle>
 	</page>
 
-	<page pageNum="50" battle="1">
+	<page pageNum="50" battle="single">
 		<text>
 			You hit the icy water with a shock and start to swim for the other side. You have 
 			swum scarcely a couple of strokes when something rises from the water in front of you: 
@@ -748,7 +750,7 @@
 		<unlucky pageNum="194"></unlucky>
 	</page>
 	
-	<page pageNum="56" rollXDice="1">
+	<page pageNum="56" rollStat="skill">
 		<text>
 			The spell is too strong for you. Roll one die. If you roll 1--4, deduct
 			1 point from your SKILL; if you roll 5 or 6, lose 2 SKILL points!
@@ -756,6 +758,102 @@
 		</text>
 		<roll pageNum="4" skill="-1" value="1,2,3,4"></roll>
 		<roll pageNum="4" skill="-2" value="5,6"></roll>
+	</page>
+
+	<page pageNum="57" battle="single">
+		<text>
+			You shudder as you gaze at the racks of whips and knives, your imagination 
+			filled with all manner of terrible images. Suddenly a whip leaps into the 
+			air and begins to strike at you!
+
+			WHIP	SKILL 9   STAMINA­
+
+			Resolve one round of combat, then tum to 17
+		</text>
+		<battle turns="1">
+			<enemy skill="9" stamina="10"></enemy>
+			<win pageNum="17"></win>
+		</battle>
+	</page>
+
+	<page pageNum="58" testLuck="1">
+		<text>
+			You look closely at the brazier and notice with a shudder that some of the 
+			ashes contain burnt bones! Test your Luck. If you are Lucky, turn to 157. 
+			If you are Unlucky, turn to 186.
+		</text>
+		<lucky pageNum="157"></lucky>
+		<unlucky pageNum="186"></unlucky>
+	</page>
+
+	<page pageNum="59" galthazzeth="stamina">
+		<text>
+			You stretch your reflexes to the limit to beat the wizard to the first blow.
+			As your sword strikes home, a bolt of blue energy boils harmlessly away into 
+			the air - he has lost the spell he was trying to cast.
+
+			Turn to 4, but deduct 2 points from Galthazzeth's STAMINA.
+		</text>
+		<stamina value="-2"></stamina>
+		<nextPage pageNum="4"></nextPage>
+	</page>
+
+	<page pageNum="60">
+		<text>
+			You leap on to the bridge and charge headlong towards the sorcerer. 
+			He croaks in fear and limps away down a tunnel on the other side. The ropes 
+			of the bridge creak and groan as you race across, but you make it safely to the 
+			other side. Turn to 114.
+		</text>
+		<nextPage pageNum="114"></nextPage>
+	</page>
+
+	<page pageNum="61">
+		<text>
+			The monstrous Beetle finally collapses! You take a deep breath,
+			clean the vile thing's green blood from your sword and quickly search	I
+			the room. Test your Luck. If you are Lucky, turn to 41. If you are Unlucky, turn to 24.
+		</text>
+		<lucky pageNum="41"></lucky>
+		<unlucky pageNum="24"></unlucky>
+	</page>
+
+	<page pageNum="62" options="1">
+		<text>
+			What will you do? To listen at the door, turn to 180. To open the door,
+			turn to 106. To return and try the side-passage, turn to 198. Or you
+			may return to the crossroads at 112 and try another route.
+		</text>
+		<option pageNum="180"></option>
+		<option pageNum="106"></option>
+		<option pageNum="198"></option>
+		<option pageNum="112"></option>
+	</page>
+
+	<page pageNum="63" damage="2" battle="single">
+		<text>
+			You put your ear to the door and listen - so you are taken completely
+			by surprise when one of the planks bulges outwards and hits you!
+			Deduct 2 points from your STAMINA. The 'door' lurches forward and
+			flows into a roughly humanoid shape to attack you. It is an
+			Imitator, a cunning shapechanging monster!
+
+			IMITATOR  SKILL 9	STAMINA 8
+
+			If you win, turn to 121.
+		</text>
+		<battle>
+			<enemy skill="9" stamina="8"></enemy>
+			<win pageNum="121"></win>
+		</battle>
+	</page>
+
+	<page pageNum="64">
+		<text>
+			You can hear muffled shuffling and scrabbling noises. 
+			Return to 124 and choose another option.
+		</text>
+		<nextPage pageNum="124"></nextPage>
 	</page>
 
 </book>
