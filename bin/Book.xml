@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+	<page pageNum = "prologue">
+		<text>
+            It was a bad idea from the start. Even though you were penniless and starving after 
+            the money won during your last adventure ran out, you should have known better than to try 
+            stealing from the stall of a fat merchant. Fat merchants get that way by making very, very 
+            sure that no one else steals from them.
+		</text>
+		<text>
+            Now you stand silently in the courtroom in Wolftown, awaiting the magistrate’s verdict.
+            Suddenly the brooding silence is broken as a thin, robed man with a short, tangles beard
+            rises to his feet in the public gallery.
+		</text>
+		<text>
+            ‘The court recognises that Guild of Magicians’, the magistrate says uneasily.
+		</text>
+		<text>
+            ‘May it please the court,’ the wizard says in a surprisingly powerful voice, 
+            ‘the Guilds- requests the life and person of this prisoner.’
+            Your heart sinks. Just when you thought things couldn’t get any worse! No one 
+            knows what happens to prisoners who are claimed but the Wizards’ Guild, but you 
+            can guess. Perhaps the will grind your liver up for one their potions, or sell your 
+            soul to a Demon. The prospect of a lifetime in jail suddenly doesn’t seem so bad.
+            ‘request granted’, the magistrates intones. ‘The prisoner is to be conveyed to the 
+            Wizards’ Guild under escort.’ A murmur runs through the court as the guards lead you out…
+		</text>
+		<text>
+            ‘Well, you might at least look a little more cheerful,’ the wizard says as you arrive as 
+            the Guildhouse. ‘I offer you a chance to live.’ He chuckles at the look of suspicion you 
+            throw at him. ‘Let me explain. Just over a decade ago, there was a sorcerer, a member of  
+            this Guild, named Galthazzeth. His interest lay in creating magical cross-breeds, but he 
+            went too far and was expelled. Now we have discovered that he has occupied an abandoned 
+            mine at the edges of the mountains, where he is breeding an army of his abominations. 
+		</text>
+		<text>
+            It is clear that he threatens to wreak revenge upon ass of us.’ The wizard looks grim.
+            ‘His lair is well guarded, especially against sorcerers. But you , you are an adventurer.
+            Your life is already forfeit, so you have nothing to lose -  and we offer you a chance to
+            regain life and your freedom. Will you accept this mission?’
+		</text>
+		<text>
+            You make up your mind. ‘You give me little choice. Where do I find this Galthazzeth?’
+            ‘You will be given a map and all that we have found out about the lair,’ the wizard smiles,
+            ‘once you have equipped yourself. Come!’
+		</text>
+		<nextPage pageNum="beginning"></nextPage>
+	</page>
+    
+	<page pageNum="beginning">
+		<text>
+			Now you are fully equipped and ready for what leis ahead. The wizard walks with you to the 
+			gates of Wolftown. He points to the foothills of the mountains, several days’ walk away, and 
+			wishes you good fortune. You settle your pack more comfortably on your back, set your face in 
+			a firm expression, and start walking.
+		</text>
+		<nextPage pageNum="1"></nextPage>
+	</page>
+		
+	<page pageNum="1" testLuck="1">
+        <text>
+            Following the directions you were given by the Wizards Guild, you trek for many days,
+            first through scrubland and the thick forest, until you draw close to the clearing where 
+            the entrance to Galthazzeth’s underground lair can be found. A cliff face rises sheer above 
+            the forest to a height of over 60 metres to the first of the plateaux fringing the mountains.
+            From the edge of the clearing you peer cautiously out at the dark entrance to the mine.
+            
+            Test your Luck. If you are Lucky, turn to 195. If your are unlucky, turn to 69.
+        </text>
+        <lucky pageNum="195"></lucky>
+        <unlucky pageNum="69"></unlucky>
+	</page>
+	
+	<page pageNum="2" options="1">
+        <text>
+            You walk cautiously up to the statue. As you approach, you see that its eyes are made of 
+            two large rubies which sparkle in the half-light. If you want the gems turn to 101. 
+            To examine the racks of implements, turn to 57. To examine the brazier, turn to 154.
+        </text>
+        <option pageNum="101"></option>
+        <option pageNum="57"></option>
+        <option pageNum="154"></option>
+	</page>
+	
+	<page pageNum="3" options="1" damage="2">
+        <text>
+            You manage to loosen one stone, when suddenly you are struck from behind by a jet of flame.
+            Deduct 2 points from your STAMINA. You spin around and see that the brazier has just ignited itself! 
+            To carry on prising the stone free, turn to 109. To stop and examine the brazier, turn to 48.
+        </text>
+        <option pageNum="">109</option>
+        <option pageNum="48"></option>
+	</page>
+	
+	<page pageNum="4" battle="single">
+        <text>
+            You have no option but to fight Galthazzeth. 
+            
+            GALTHAZZETH	SKILL 10	STAMINA 15
+            
+            If he wins two consecutive rounds of combat, turn to 28.
+            If you win, turn to 174.
+        </text>
+        <battle wins="2">
+        	<enemy stamina="15" skill="10"></enemy>
+        	<win pageNum="174"></win>
+            <lose pageNum="28"></lose>
+        </battle>
+	</page>
+	
+	<page pageNum="5" items="3">
+        <text>
+            Finally the Scitalis dies. Looking round the room, you see that not all the treasure was an 
+            illusion - among the bones of past victims you find a jewelled sword and two gems that are
+            worth 25 Gold Pieces each. The sword is magical; in combat it will add 1 point to your Attack Strength.
+            
+            Now return along the passage to 42 and choose another route.
+        </text>
+        <nextPage pageNum="42"></nextPage>
+        <item name="Jewelled Sword" attribute="skill">
+        	<skill value="1"></skill>
+        </item>
+        <item name="Gem" goldValue="25"></item>
+        <item name="Gem" goldValue="25"></item>
+	</page>
+	
+	<page pageNum="6" rollXDice="2">
+        <text>
+            From your hiding place you can hear Galthazzeth shouting orders in an unknown language. 
+            Even though the spell failed, your attempt to cast it has given you away. You grip your 
+            sword and stand up; the Ant men and Zombies close in on you. Roll two dice. If the total 
+            rolled is 5 or less, turn to 179. If you roll 6 or more, turn to 39.
+        </text>
+        <roll value="1,2,3,4,5" pageNum="179"></roll>
+        <roll value="6,7,8,9,10,11,12" pageNum="39"></roll>
+	</page>
+	
+	<page pageNum="7" battle="1">
+        <text>
+            Galthazzeth hobbles through the doorway into a small cave furnished with more workbenches, 
+            arranged round a large stone tank. As you enter, a blue-green spark leaps to the tank and 
+            the stuff in it stirs. The mage limps out of the chamber. Before you can follow, the substance 
+            in the tank rises up in a column and shoots out a tentacle at you.
+            
+            CLONE SLIME   SKILL 4   STAMINA 30
+            Fight three rounds then turn to 197.
+        </text>
+        <battle turns="3">
+        	<enemy stamina="30" skill="4"></enemy>
+        	<win pageNum="197"></win>
+            <lose pageNum="197"></lose>
+        </battle>
+	</page>
+	
+	<page pageNum="8" options="1">
+		<text>
+			This seems to be some kind of store room: it is littered with all kinds of debris, but it is 
+			not occupied. To search the debris, turn to 21. To shut the door and continue east round the corner, 
+			turn to 42.
+			To shut the door and go back west, turn to 170.
+		</text>
+		<option pageNum="21"></option>
+		<option pageNum="42"></option>
+		<option pageNum="170"></option>
+	</page>
+	
+	<page pageNum="9" options="1" constraint="weapon-magical">
+        <text>
+            You shout a war-cry and lunge at the spectral figure. Do you have a magical weapon? 
+            If you have, turn to 27. Otherwise, turn to 133.
+        </text>
+	    <option pageNum="27"></option>
+	    <option pageNum="133"></option>
+	</page>
+	
+	<page pageNum="10" constraint="weapon-spear, weapon-dagger">
+        <text>
+            The last few Antrnen SCl.lttle away from your sword, chittering in agitation. 
+            You and Galthc1zzeth are left facing each other across the wreckage. 
+            The sorcerer fclises one hand to cast a spell. If you have a spear or dagger, 
+            turn to 148. Otherwise, turn to 187.
+        </text>
+        <haveItem pageNum="148"></haveItem>
+        <dontHaveItem pageNum="187"></dontHaveItem>
+	</page>
+	
+	<page pageNum="11">
+	<text>
+		You decide to leave the artifact alone and exit the room.
+		Return to 8 and make another choice
+	</text>
+	<nextPage pageNum="8"></nextPage>
+	</page>
+    
+    <page pageNum="12">
+        <text>
+            You head south along the passage. After a few paces, you notice a door in the east wall. 
+            Further south is a crossroads. To open the door, turn to 75. To continue as far as the junction,
+            turn to 112.
+        </text>
+        <option pageNum="75"></option>
+        <option pageNum="112"></option>
+    </page>
+    
+    <page pageNum="13" galthazzeth="stamina">
+        <text>
+            Your weapon hits Galthazzeth before he can finish casting his spell, and a bolt of blue energy 
+            spirals harmlessly to the floor. You draw your sword and leap at him! Turn to 4, 
+            deducting 2 points from Galthazzeth's STAMINA.
+        </text>
+        <galStamina value="-2"></gStamina>
+        <nextPage pageNum="4"></nextPage>
+    </page>
+    
+    <page pageNum="14" options="1">
+    	<text>
+    		The tunnel continues into the darkness. After several metres you rome to a door, set in the east wall. 
+    		To open the door, turn to 75.
+    		
+			To continue up the corridor, turn to 198. To return to the crossroads and try another direction, turn to 112.
+    	</text>
+    	<option pageNum="75"></option>
+    	<option pageNum="198"></option>
+    	<option pageNum="112"></option>
+    </page>
+    
+    <page pageNum="15" battle="single">
+    	<text>
+    		The stairs lead down to a short passage, ending at a wooden door.
+    	</text>
+    	<text>
+    		You open it to find yourself in a room - inhabited by two surprised Antmen!
+    	</text>
+    	<text>
+    		You close with the first before he can use his acid spray.
+			Fight them one at a time.
+			
+			First ANTMAN	SKILL 6 STAMINA 8
+			Second ANTMAN	SKILL 6	STAMINA 7
+			If you win, turn to 182.
+    	</text>
+    	<battle>
+    		<enemy skill="6" stamina="8"></enemy>
+    		<enemy skill="6" stamina="7"></enemy>
+    		<win pageNum="182"></win>
+   		</battle>
+    </page>
+	
+	<page pageNum="16">
+		<text>
+			At last the Goblin Shaman dies. A swift search of the body yields a few items of interest: 7 Gold Pieces, 
+			a small leather flask and a scroll. The flask holds a fizzing blue liquid which smells vaguely of fish. 
+			There is enough for two draughts; you may drink some at any time by making a note of the paragraph you 
+			are on, then turning to 172. To your surprise the scroll is in Allansian and seems to be a spell called 
+			'Firestorm'. Now, to leave by the north door, turn to 20. To return to the crossroads and choose another 
+			direction, turn to 112.
+		</text>
+		<nextPage pageNum="112"></nextPage>
+	</page>
+	
+	<page pageNum="17" battle="single">
+		<text>
+			As you dodge away from the animated whip, a door flies open. Into the room st rides a huge, 
+			ugly Goblin wearing shabby ceremonial robes. This must be the Shaman who serves the temple 
+			as a priest. He barks a few words in what you assume is the Goblin tongue, and the whip 
+			strikes again!
+		</text>
+		<text>
+			WHIP	SKILL 9	STAMINA -
+			Resolve this round, then turn to 145.
+		</text>
+		<battle  turns="1">
+			<enemy skill="9" stamina="100"></enemy>
+			<win pageNum="145"></win>
+		</battle>
+	</page>
+	
+	<page pageNum="18" constraint="item-amethyst amulet">
+		<text>
+			The wizard skips away from your sword and makes a gesture with one hand. Do you have an amethyst amulet?
+			If you have, turn to 90. Otherwise, turn to 129.
+		</text>
+		<haveItem pageNum="90"></haveItem>
+		<dontHaveItem pageNum="129"></dontHaveItem>
+	</page>
+	
+	<page pageNum="19" options="1">
+		<text>
+			The door swings open to reveal a room strewn with rubbish and crude furniture. 
+			Three Goblins are in the room; one snatches up a sword and d1arges at you,
+			while the others leap up to get their own weapons. If you stay in the doorway,
+			turn to 85. To advance into the room, turn to 93
+		</text>
+		<option pageNum="85"></option>
+		<option pageNum="93"></option>
+	</page>
+	
+	<page pageNum="20" constraint="scroll-Firestorm">
+		<text>
+			You go through the north door into a large room. It seems to be some kind of temple; 
+			a statue of a vicious, powerful-looking Goblin, about two metres tall, stands at the 
+			far end; in front of it is an unlit iron brazier. On either side are racks of whips and knives. 
+			There is another door in the south wall. If you have a 'Firestorm' scroll, turn to 84. 
+			Otherwise, turn to 2
+		</text>
+		<haveItem pageNum="84"></haveItem>
+		<dontHaveItem pageNum="2"></dontHaveItem>
+	</page>
+	
+	<page pageNum="21" testLuck="1">
+		<text>
+			Test your Luck. If you are Lucky, turn to 33. If you are Unlucky, turn to 51
+		</text>
+		<lucky pageNum="33"></lucky>
+		<unlucky pageNum="51"></unlucky>
+	</page>
+	
+	<page pageNum="22">
+		<text>
+			You carry on down the tunnel. Galthazzeth was heading for something important, 
+			maybe a way out - and you want to know what it is. After some distance you come 
+			to a complex maze of caves and passages. Turn to 110.
+		</text>
+		<nextPage pageNum="110"></nextPage>
+	</page>
+	
+	<page pageNum="23" options="1">
+		<text>
+			The amethyst glows a bright purple and the treasure fades away,
+			revealing a large, brightly coloured snake in its place. You have heard of
+			The Scitalis, or Treasure Snake, which uses illusions to attract its victims! 
+			The snake lies  perfectly still, waiting  to ambush adventurers, and doesn't 
+			appear to have noticed you. To attack it, turn to 122. If you would rather leave, 
+			return to 42 and choose another route.
+		</text>
+		<option pageNum="122"></option>
+		<option pageNum="42"></option>
+	</page>
+	
+	<page pageNum="24">
+		<text>
+			You find nothing of interest among the debris. Leave here, return to 42 and 
+			choose another route.
+		</text>
+		<nextPage pageNum="42"></nextPage>
+	</page>
+	
+	<page pageNum="25" battle="single">
+		<text>
+			You have surprised the Antman and manage to close with it before it can
+			use its acid spray.
+		</text>
+		<text>
+			ANTMAN	SKILL 7	STAMINA 7
+		</text>
+		<text>
+			If you win, turn to 62.
+		</text>
+		<battle>
+			<enemy skill="7" stamina="7">
+				<win pageNum="62"></win>
+			</enemy>
+		</battle>
+	</page>
+	
+	<page pageNum="26" battle="single">
+		<text>
+			The Giant Beetle is busy eating and doesn't seem to take any notice as you approach 
+			it warily. Roll 2 dice. If the total rolled is less than
+			or equal to your SKILL score, you have wounded it and may deduct 2 points 
+			from its STAMINA. Otherwise, your sword skids harmlessly off its tough carapace. 
+			Now fight it.
+		</text>
+		<text>
+			GIANT BEETLE	SKILL 9	STAMINA 16
+		</text>
+		<text>
+			If you win, turn to 61.
+		</text>
+		<battle rollToDamage="2">
+			<roll value="<skill" damage="2"></roll>
+			<enemy skill="9" stamina="16"></enemy>
+		</battle>
+	</page>
+	
+	<page pageNum="27" battle="single">
+		<text>
+			You lash out at the Ghost with your magic sword.
+			Resolve one round of combat. 
+		</text>
+		<text>
+			GHOST	SKILL 9	STAMINA 8
+		</text>
+		<text>
+			If you win this round, turn to 67. If the Ghost wins, turn to 126.
+		</text>
+		<battle turns="1">
+			<enemy skill="9" stamina="8"></enemy>
+			<win pageNum="67"></win>
+			<lose pageNum="126"></lose>
+		</battle>
+	</page>
+	
+	<page pageNum="28" rollXDice="1">
+		<text>
+			Roll one die. On 1 or 2, turn to 81. On 3 or 4, turn to 113.
+			On 5 or 6, turn to 18.
+		</text>
+		<roll value="1,2" pageNum="81"></roll>
+		<roll value="3,4" pageNum="113"></roll>
+		<roll value="5,6" pageNum="18"></roll>
+	</page>
+		
+	<page pageNum="29" testLuck="1">
+		<text>
+			You wait for a few seconds, then move quietly behind another bench. 
+			Test your Luck. If you are Lucky, turn to 184.
+			If you are Unlucky, turn to 152.
+		</text>
+		<lucky pageNum="184"></lucky>
+		<unlucky pageNum="152"></unlucky>
+	</page>
+	
+	<page pageNum="30">
+		<text>
+			No more slime emerges - you have defeated the Clone Slime!
+		</text>
+		<text>
+		Taking a lantern from one of the benches, you set the tank ablaze for
+ 		good measure. Now to deal with that sorcerer! You run down
+		the tunnel after Galthazzeth; turn to 167.
+		</text>
+		<nextPage pageNum="167"></nextPage>
+	</page>
+	
+	<page pageNum="31">
+		<text>
+			The wizard sees you the instant before you throw your weapon,
+			and he makes a magical pass with his hands.
+			The air before you becomes solid, like ice, and your weapon 
+			bounces harmlessly off. Turn to 105.
+		</text>
+		<nextPage pageNum="105"></nextPage>
+	</page>
+	
+	<page pageNum="32" damage="2" battle="single">
+		<text>
+			You ram the door with your shoulder. It doesn't open, but one of 
+			its slats bounces back and hits you! Deduct 2 points from your STAMINA. 
+			The door is an Imitator, able to take any form it chooses. It flows into 
+			a roughly humanoid shape and attacks you.
+		</text>
+		<text>
+			IMITATOR	SKILL 9	STAMINA 8
+		</text>
+		<text>
+			If you win, turn to 121.
+		</text>
+		<battle>
+			<enemy skill="9" stamina="8"></enemy>
+			<win pageNum="121"></win>
+		</battle>
+	</page>
+	
+	<page pageNum="33" options="1">
+		<text>
+			Lying among the rubbish you find a beautiful gold amulet set with an 
+			amethyst. If you want to take it, turn to 131. If you would rather 
+			leave it, turn to 11.
+		</text>
+		<option pageNum="131"></option>
+		<option pageNum="11"></option>
+	</page>
+	
+	<page pageNum="34" options="1">
+		<text>
+			'Pahl' spits the Ghost. 'Just because I'm dead doesn't mean I'm stupid!
+		 	Do you really expect me to believe that?' What will you do now; 
+			attack the Ghost (turn to 9), run away (turn to 170) or return 
+			to 147 and choose another story?
+		</text>
+		<option pageNum="9"></option>
+		<option pageNum="170"></option>
+		<option pageNum="147"></option>
+	</page>
+	
+	<page pageNum="35" options="1">
+		<text>
+			The staircase leads up to a small, empty chamber. 
+			There is a door in the north wall, and a passage enters to the east. 
+			To go along the passage, turn to 99; to open the door, turn to 168.
+		</text>
+		<option pageNum="99"></option>
+		<option pageNum="168"></option>
+	</page>
+	
+	<page pageNum="36" options="1">
+		<text>
+			As you round the corner, you espy someone crouching in front of a door, 
+			a few metres ahead. He seems to be picking  the lock- and he hasn't 
+			heard you corning. To speak to him, turn to 132. To attack him, 
+			turn to 143. To keep quiet and watch, turn to 124.
+		</text>
+		<option pageNum="132"></option>
+		<option pageNum="143"></option>
+		<option pageNum="124"></option>
+	</page>
+	
+	<page pageNum="37" items="5" options="1">
+		<text>
+			The whip drops to the floor as the Shaman dies. A swift search of its 
+			body yields 7 Gold Pieces, a small leather flask and a scroll. 
+			The flask holds a fizzing blue liquid which smells vaguely of fish. 
+			There is enough for two draughts; you may drink some at any time 
+			by making a note of where you are, then turning to 172. 
+		</text>
+		<text>
+			The scroll is written in Allansian and seems to be a spell called 'Firestorm '. 
+		</text>
+		<text>
+			The two gems in the statue's eyes can now be prised out; 
+			they are worth 25 Gold Pieces each. Now, will you enter the Shaman's room 
+			(turn to 78) or return to 112 and choose another direction?
+		</text>
+		<item name="gold" goldValue="7"></item>
+		<item name="Gem" goldValue="25"></item>
+		<item name="Gem" goldValue="25"></item>
+		<item name="Firestrom"></item>
+		<option pageNum="78"></option>
+		<options pageNum="112"></options>
+	</page>
+	
+	<page pageNum="38" gainStat="luck" damage="2" constraint="weapon-dagger,weapon-spear">
+		<text>
+			As the smoke and dust clear, you can see that the spell has worked! 
+			Everywhere there are dead and injured and wrecked equipment. 
+			You climb shakily to your feet; reduce your STAMINA by 2 points, 
+			but regain 1 LUCK point. Galthazzeth clambers from behind the ruins of a 
+			workbench, glowering with rage. He raises one hand to cast a spell. If you have 
+			a spear or dagger, turn to 148. Otherwise, turn to 187.
+		</text>
+		<haveItem pageNum="148"></haveItem>
+		<dontHaveItem pageNum="187"></dontHaveItem>
+		<luck value ="1"></luck>
+	</page>
+	
+	<page pageNum="39" constraint="item-G rune">
+		<text>
+			The small crowd of Antmen parts and four Zombies come lumbering towards you.
+			 Do you have anything inscribed with a G-rune? If you have, turn to 130; 
+			 otherwise, turn to 185.
+		</text>
+		<haveItem pageNum="130"></haveItem>
+		<dontHaveItem pageNum="185"></dontHaveItem>
+	</page>
+	
+	<page pageNum="40" battle="single">
+		<text>
+			You twist to one side, and the bolt of fire just misses you. You can smell your 
+			armour scorching as the missile grazes your shoulder, but you are unharmed. 
+			You leap at the Shaman before he can cast another spell.
+		</text>
+		<text>
+			GOBLIN SHAMAN	SKILL 6	STAMINA 6
+			If he wins two consecutive rounds, turn to 88. If you win, turn to 16.
+		</text>
+		<battle wins="2">
+			<enemy skill="6" stamina="6"></enemy>
+			<win pageNum="16"></win>
+		</battle>
+	</page>
+
+	<page pageNum="41" item="1">
+		<text>
+			Among the debris are the remains of several bodies. You manage to find a 
+			total of 20 Gold Pieces. Now you must leave the room, return to 42 and 
+			choose another route
+		</text>
+		<item name="gold" goldValue="20"></item>
+		<nextPage pageNum="42"></nextPage>
+	</page>
+
+	<page pageNum="42" options="1">
+		<text>
+			You walk to the comer then tum northwards. After a few metres, you find
+			 a passage leading to the east; the main passage ends at a door,
+			a few steps further on. To head east, tum to 165. To continue north,
+			turn to 52. Or you can return to 103 and choose another way.
+		</text>
+		<option pageNum="165"></option>
+		<option pageNum="52"></option>
+		<option pageNum="103"></option>
+	</page>
+
+	<page pageNum="43" battle="single">
+		<text>
+			The creature leaps at you.
+			GOBLIN	SKILL 6	STAMINA 6
+			If you win, you can look around. A quick search turns up a spear, 
+			a dagger and a bronze medallion marked with a G-rune. However, you
+			also find to your horror that the snack the Goblin was eating was part of 
+			a human arm! Now you may enter the mine; turn to 112.
+		</text>
+		<battle>
+			<enemy skill="6" stamina="6"></enemy>
+			<win pageNum="112"></win>
+		</battle>
+	</page>
+
+	<page pageNum="44" rollStat="stamina">
+		<text>
+			Shaking with the mental effort, you try to follow the words on the scroll.
+			A strange power begins to well up inside you, but you trip over the complicated 
+			words and symbols - after all, you were not trained as a wizard. The power turns 
+			inwards and explodes inside your brain; you have lost the spell. Roll one die 
+			and lose that many STAMINA points. If you are still alive, turn to 6.
+		</text>
+		<nextPage pageNum="6"></nextPage>
+		<stamina value="-1"></stamina>
+	</page>
+
+	<page pageNum="45" damage="rollDice">
+		<text>
+			You are not quick enough to avoid the energy bolt. Roll one die and lose that many 
+			STAMINA points. If you are still alive, turn to 4 and continue the battle.
+		</text>
+		<nextPage pageNum="4"></nextPage>
+	</page>
+
+	<page pageNum="46" battle="single">
+		<text>
+			You just manage to dodge the mandibles of an immense Giant Beetle! It may have 
+			missed you this time, but it's certainly going to have another try.
+
+			GIANT BEETLE	SKILL 9 STAMINA 16
+
+			If you defeat the monster, turn to 61
+		</text>
+		<battle>
+			<enemy skill="9" stamina="16"></enemy>
+			<win pageNum="61"></win>
+		</battle>
+	</page>
+
+	<page pageNum="47" options="1">
+		<text>
+			The door opens into a passage heading south-west. To go down the passage, 
+			turn to 108. To continue northwards, turn to 83
+		</text>
+		<option pageNum="108"></option>
+		<option pageNum="83"></option>
+	</page>
+
+	<page pageNum="48" options="1">
+		<text>
+			You look closely at the brazier, but you can't see anything unusual.
+			If you want to carry on prising the gems free, tum to 109. Otherwise you 
+			may leave here; return to 112 and choose another way.
+		</text>
+		<option pageNum="109"></option>
+		<option pageNum="112"></option>
+	</page>
+
+	<page pageNum="49" battle="single">
+		<text>
+			You burst through the door into a small room that is occupied by two Goblins. 
+			They move to attack you with shrill cries.
+		</text>
+		<text>
+			First GOBLIN	SKILL 5	STAMINA 6
+			Second GOBLIN	SKILL 5	STAMINA 5
+		</text>
+		<text>
+			Each makes a separate attack on you every round, but you must choose which of 
+			the two you will attack. Fight your chosen opponent as normal.
+			Throw again for your fight with the second Goblin: if you win, the Goblin
+			is not wounded, but you have held him off for a round; if you lose, he injures 
+			you in the usual way! If you defeat both Goblins, turn to 118.
+		</text>
+		<battle>
+			<enemy skill="5" stamina="6"></enemy>
+			<enemy skill="5" stamina="5"></enemy>
+		</battle>
+	</page>
+
+	<page pageNum="50" battle="single">
+		<text>
+			You hit the icy water with a shock and start to swim for the other side. You have 
+			swum scarcely a couple of strokes when something rises from the water in front of you: 
+			a massive cross-bred monster with a human face, an
+			octopus body and two tentacles, each of which grips a weapon. You must
+			fight, with your Attack Strength reduced by 2 points because you have to tread water.
+
+			MAN-OCTOPUS	SKILL 6 STAMINA 7
+
+			If you win, you reach the other side safely and can follow Galthazzeth down the tunnel; turn to 114.
+		</text>
+		<battle skill="-2">
+			<enemy skill="6" stamina="7"></enemy>
+		</battle>
+	</page>
+	
+	<page pageNum="51">
+		<text>
+			You find nothing of interest or value. Return to 8 and make another choice.
+		</text>
+		<nextPage pageNum="8"></nextPage>
+	</page>
+	
+	<page pageNum="52" options="1">
+		<text>
+			The passage continues for a short distance before ending at a door. To open the 
+			door, turn to 32. To listen at it before entering, turn to 63.
+			Or you can return to 42
+		</text>
+		<option pageNum="32"></option>
+		<option pageNum="63"></option>
+		<option pageNum="42"></option>
+	</page>
+	
+	<page pageNum="53" rollXDice="2">
+		<text>
+			You try the door warily. It isn't locked - the bandit must have picked it. 
+			As you push open the door, though, a huge pair of clattering mandibles shoots out 
+			at you! Roll two dice. If the total rolled is less than or equal to your SKILL, 
+			turn to 46. If it is higher, turn to 164.
+		</text>
+		<roll pageNum="46" value="<skill"></roll>
+		<roll pageNum="164" value=">skill"></roll>
+	</page>
+	
+	<page pageNum="54" options="1">
+		<text>
+			This seems to be the trigger point for some kind of mechanism;
+			although you fiddle with it for some time, you can't make it do anything.
+			Now you may continue north (turn to 20) or
+			eastwards, back to the crossroads (turn to 112).
+		</text>
+		<option pageNum="20"></option>
+		<option pageNum="112"></option>
+	</page>
+	
+	<page pageNum="55" testLuck="1">
+		<text>
+			You shout a war-cry and leap up spectacularly from your hiding-place! 
+			Test your Luck. If you are Lucky, turn to 86. If you are
+			Unlucky, turn to 194.
+		</text>
+		<lucky pageNum="86"></lucky>
+		<unlucky pageNum="194"></unlucky>
+	</page>
+	
+	<page pageNum="56" rollStat="skill">
+		<text>
+			The spell is too strong for you. Roll one die. If you roll 1--4, deduct
+			1 point from your SKILL; if you roll 5 or 6, lose 2 SKILL points!
+			Turn to 4 to continue the battle.
+		</text>
+		<roll pageNum="4" skill="-1" value="1,2,3,4"></roll>
+		<roll pageNum="4" skill="-2" value="5,6"></roll>
+	</page>
+
+	<page pageNum="57" battle="single">
+		<text>
+			You shudder as you gaze at the racks of whips and knives, your imagination 
+			filled with all manner of terrible images. Suddenly a whip leaps into the 
+			air and begins to strike at you!
+
+			WHIP	SKILL 9   STAMINA­
+
+			Resolve one round of combat, then tum to 17
+		</text>
+		<battle turns="1">
+			<enemy skill="9" stamina="10"></enemy>
+			<win pageNum="17"></win>
+		</battle>
+	</page>
+
+	<page pageNum="58" testLuck="1">
+		<text>
+			You look closely at the brazier and notice with a shudder that some of the 
+			ashes contain burnt bones! Test your Luck. If you are Lucky, turn to 157. 
+			If you are Unlucky, turn to 186.
+		</text>
+		<lucky pageNum="157"></lucky>
+		<unlucky pageNum="186"></unlucky>
+	</page>
+
+	<page pageNum="59" galthazzeth="stamina">
+		<text>
+			You stretch your reflexes to the limit to beat the wizard to the first blow.
+			As your sword strikes home, a bolt of blue energy boils harmlessly away into 
+			the air - he has lost the spell he was trying to cast.
+
+			Turn to 4, but deduct 2 points from Galthazzeth's STAMINA.
+		</text>
+		<stamina value="-2"></stamina>
+		<nextPage pageNum="4"></nextPage>
+	</page>
+
+	<page pageNum="60">
+		<text>
+			You leap on to the bridge and charge headlong towards the sorcerer. 
+			He croaks in fear and limps away down a tunnel on the other side. The ropes 
+			of the bridge creak and groan as you race across, but you make it safely to the 
+			other side. Turn to 114.
+		</text>
+		<nextPage pageNum="114"></nextPage>
+	</page>
+
+	<page pageNum="61">
+		<text>
+			The monstrous Beetle finally collapses! You take a deep breath,
+			clean the vile thing's green blood from your sword and quickly search	I
+			the room. Test your Luck. If you are Lucky, turn to 41. If you are Unlucky, turn to 24.
+		</text>
+		<lucky pageNum="41"></lucky>
+		<unlucky pageNum="24"></unlucky>
+	</page>
+
+	<page pageNum="62" options="1">
+		<text>
+			What will you do? To listen at the door, turn to 180. To open the door,
+			turn to 106. To return and try the side-passage, turn to 198. Or you
+			may return to the crossroads at 112 and try another route.
+		</text>
+		<option pageNum="180"></option>
+		<option pageNum="106"></option>
+		<option pageNum="198"></option>
+		<option pageNum="112"></option>
+	</page>
+
+	<page pageNum="63" damage="2" battle="single">
+		<text>
+			You put your ear to the door and listen - so you are taken completely
+			by surprise when one of the planks bulges outwards and hits you!
+			Deduct 2 points from your STAMINA. The 'door' lurches forward and
+			flows into a roughly humanoid shape to attack you. It is an
+			Imitator, a cunning shapechanging monster!
+
+			IMITATOR  SKILL 9	STAMINA 8
+
+			If you win, turn to 121.
+		</text>
+		<battle>
+			<enemy skill="9" stamina="8"></enemy>
+			<win pageNum="121"></win>
+		</battle>
+	</page>
+
+	<page pageNum="64">
+		<text>
+			You can hear muffled shuffling and scrabbling noises. 
+			Return to 124 and choose another option.
+		</text>
+		<nextPage pageNum="124"></nextPage>
+	</page>
+
+</book>
