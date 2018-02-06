@@ -156,7 +156,7 @@ public class Player {
 	}
 	
 	// Pick up the item and see if it buffs/debuff player stats before adding it to backpack
-	public void pickUpItem(List<Item> itemList) {
+	public void pickUpItems(List<Item> itemList) {
 		for (Item item : itemList) {
 			
 			Map<String, Integer> itemAttribute = item.getAttribute();
