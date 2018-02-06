@@ -36,13 +36,23 @@ public class Page {
 		
 		if (hasTestLuck(page)) {
 			nextPage = testLuck(page, player);
+		}  else if (hasTakeDamage(page)) {
+			takeDamage(page, player);
+		} else if (hasRollStat(page, player)) {
+			handleRollStat(page, player);
+		} else if (hasRollForNextPage(page)) {
+			nextPage = diceRollForNextPage(page, player);
+		} else if (hasItems(page)) {
+			player.pickUpItems(getItems(page));
+		} else if (hasGainStat(page)) {
+			gainStat(page, player);
 		} else if (hasOptions(page)) {
 			nextPage = pickOption(page);
-		} else if (hasTakeDamage(page)) {
-			takeDamage(page, player);
 		} else if (hasBattle(page)) {
 			victory = battle(page, player);
 			nextPage = battleNextPage(page, victory);
+		} else if (hasNextPage(page)) {
+			findNextPage(page);
 		}
 		
 		System.out.println("Next page: "+ nextPage);
@@ -287,8 +297,8 @@ public class Page {
 	}
 	
 	// Query page for rollXDice attribute
-	public boolean hasRollXDice(Element page) {
-		String hasAttribute = page.getAttributeValue("rollXDice", "none");
+	public boolean hasRollForNextPage(Element page) {
+		String hasAttribute = page.getAttributeValue("rollForNextPage", "none");
 		
 		if (!hasAttribute.equals("none")) {
 			return true;
@@ -299,7 +309,7 @@ public class Page {
 	
 	// This handles the dice roll to find the next page
 	public String diceRollForNextPage(Element page, Player player) {
-		int rollAmount = Integer.parseInt(page.getAttributeValue("rollXDice"));
+		int rollAmount = Integer.parseInt(page.getAttributeValue("rollForNextPage"));
 		int diceValue = 0;
 		
 		// Player rolls x amount of dice
