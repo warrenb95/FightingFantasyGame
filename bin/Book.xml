@@ -932,4 +932,52 @@
 		<option pageNum="112"></option>
 	</page>
 	
+	<page pageNum="71" gainStat="luck">
+		<text>
+			You press one of the Goblins' pendants into the hollow. The axe symbol glows briefly, then a section of the wall swings open!
+			Regain 1 LUCK point. Turn to 125 .
+		</text>
+		<luck value="1"></luck>
+	</page>
+
+	<page pageNum="72" rollForNextPage="2">
+		<text>
+			After some distance the passage widens and becomes a room. There is a door in the far wall, but it is guarded by an Antman warrior. Roll two dice. If the total is less than or equal to your SKILL, turn to 25.
+			If it is higher, turn to 97.
+		</text>
+		<roll pageNum="25" value="<=skill"></roll>
+		<roll pageNum="97" value=">skill"></roll>
+	</page>
+
+	<page pageNum="73" testLuck="1">
+		<text>
+			A bolt of fire erupts from the Goblin's fingertips and streaks across the room at you! Test your Luck. If you are Lucky, turn to 40. If you are Unlucky, turn to 169.
+		</text>
+		<lucky pageNum="40"></lucky>
+		<unlucky pageNum="169"></unlucky>
+	</page>
+
+	<page pageNum="74">
+		<text>
+			The maze is very complex, twisting and turning all over the place. Without a map you soon become hopelessly lost. Test your Luck. If you are Lucky, turn to 193. If you are Unlucky, return to the top of this paragraph. If your LUCK reaches 2 or less, turn to 160.
+		</text>
+		<lucky pageNum="193"></lucky>
+		<luckStat pageNum="160" value="<=2"></luckStat>
+		<unlucky pageNum="74"></unlucky>
+	</page>
+
+	<page pageNum="75" rollForNextPage="1" options="1">
+		<text>
+			Roll one die. On a 1 or 6, the door flies open with a crash; turn to 19.
+			If you  roll anything  else, the door stays firmly shut and  you bruise
+			your shoulder; deduct 1 point from your STAMINA. You may try again by returning to the start of this paragraph. Otherwise, you may
+			continue up the corridor (turn to 198) or return to the crossroads (turn to 112) and choose another way.
+		</text>
+ 		<roll pageNum="19" value="1,6"></roll>
+ 		<roll pageNum="75" value="2,3,4,5" damage="1"></roll>
+ 		<option pageNum="75"></option>
+ 		<option pageNum="198"></option>
+ 		<option pageNum="112"></option>
+ 	</page>
+
 </book>
