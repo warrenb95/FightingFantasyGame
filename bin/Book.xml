@@ -208,7 +208,7 @@
             spirals harmlessly to the floor. You draw your sword and leap at him! Turn to 4, 
             deducting 2 points from Galthazzeth's STAMINA.
         </text>
-        <galStamina value="-2"></gStamina>
+        <galStamina value="-2"></galStamina>
         <nextPage pageNum="4"></nextPage>
     </page>
     
@@ -856,4 +856,80 @@
 		<nextPage pageNum="124"></nextPage>
 	</page>
 
+	<page pageNum="65" options="1" chooseItems="1">
+		<text>
+			The Goblins have small change worth 3 Gold Pieces between them. Each of 
+			them is also wearing an iron pendant in the shape of a double-headed axe, 
+			and one has a pair of bone dice. You may take any of these articles if you wish. 
+			Now you may search the room; turn to 181. Otherwise, will you leave through the 
+			north door (turn to 20) or return to the crossroads at 112 and choose another way?
+		</text>
+		<item name="gold" goldValue="3"></item>
+		<item name="iron pendant">
+			<attribute description="iron pendant in the shape of a double-headed axe"></attribute>
+		</item>
+		<item name="bone dice"></item>
+		<option pageNum="181"></option>
+		<option pageNum="20"></option>
+		<option pageNum="112"></option>
+	</page>
+
+	<page pageNum="66" options="1">
+		<text>
+			You prop the body against the door and shove. The door swings open -  
+			but before the body can fall, it is seized by a Giant Beetle and dragged into the 
+			room! If you want to enter the room and attack the creature, turn to 26.
+			Otherwise, return to 42 and pick another route.
+		</text>
+		<option pageNum="26"></option>
+		<option pageNum="42"></option>
+	</page>
+
+	<page pageNum="67" option="1">
+		<text>
+			The Ghost howls in pain as your magic sword wounds it. Reduce its
+			STAMINA by 2 points. It screams at you to stop. If you desist, tum to 177.
+			If you would rather press home your attack, turn to 192.
+		</text>
+		<enemy name="Ghost" damage="2"></enemy>
+		<option pageNum="177"></option>
+		<option pageNum="192"></option>
+	</page>
+
+	<page pageNum="68" testLuck="1">
+		<text>
+			You follow the map through a winding labyrinth of passages and small caverns. 
+			The maze is very complex and, despite the map, you find yourself
+			at a dead end. You groan as you realize that you must have taken a wrong
+			turning somewhere-and now you're lost! Test your Luck. 
+
+			If you are Lucky, turn to 193. If you are Unlucky, return to the top of this 
+			paragraph. If your LUCK score is 2 or less, turn to 160.
+		</text>
+		<lucky pageNum="193"></lucky>
+		<luckStat value="2=>" pageNum="160"></luckStat>
+		<unlucky pageNum="68"></unlucky>
+	</page>
+	
+	<page pageNum="69">
+		<text>
+			You enter the tunnel cautiously, but a shuffling noise behind you
+			warns you that you have been spotted. You turn and see a Goblin armed
+			with a spear charging at you; it must have been hiding outside when you
+			entered. Turn to 43.
+		</text>
+		<nextPage pageNum="43"></nextPage>
+	</page>
+	
+	<page pageNum="70" options="1">
+		<text>
+			The passage opens out into a huge rocky chamber, littered with rubble, a 
+			broken wooden cart and other debris. However, a brief search fails to turn 
+			up anything of value. There is a door in the north wall. To leave through it, 
+			turn to 103; otherwise, return to the cross roads at 112 and choose again.
+		</text>
+		<option pageNum="103"></option>
+		<option pageNum="112"></option>
+	</page>
+	
 </book>
