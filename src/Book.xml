@@ -169,8 +169,8 @@
             You shout a war-cry and lunge at the spectral figure. Do you have a magical weapon? 
             If you have, turn to 27. Otherwise, turn to 133.
         </text>
-	    <option pageNum="27"></option>
-	    <option pageNum="133"></option>
+	    <haveItem pageNum="27"></haveItem>
+	    <dontHaveItem pageNum="133"></dontHaveItem>
 	</page>
 	
 	<page pageNum="10" constraint="weapon-spear, weapon-dagger">
@@ -607,7 +607,7 @@
 		</battle>
 	</page>
 
-	<page pageNum="44" rollStat="stamina">
+	<page pageNum="44" damage="rollDice">
 		<text>
 			Shaking with the mental effort, you try to follow the words on the scroll.
 			A strange power begins to well up inside you, but you trip over the complicated 
@@ -616,13 +616,11 @@
 			and lose that many STAMINA points. If you are still alive, turn to 6.
 		</text>
 		<nextPage pageNum="6"></nextPage>
-		<stamina value="-1"></stamina>
 	</page>
 
 	<page pageNum="45" damage="rollDice">
 		<text>
-			You are not quick enough to avoid the energy bolt. Roll one die and lose that many 
-			STAMINA points. If you are still alive, turn to 4 and continue the battle.
+			You are not quick enough to avoid the energy bolt. Roll one die and lose that many STAMINA points. If you are still alive, turn to 4 and continue the battle.
 		</text>
 		<nextPage pageNum="4"></nextPage>
 	</page>
@@ -978,6 +976,6 @@
  		<option pageNum="75"></option>
  		<option pageNum="198"></option>
  		<option pageNum="112"></option>
- 	</page>
+ 	</page> 
 
 </book>

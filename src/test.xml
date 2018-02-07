@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <book>
-	<page pageNum="test" battle="single">
+	<page pageNum="test" battle="single" testLuck="1" options="1" damage="rollDice" items="3" rollForNextPage="2" constraint="weapon-magical" galthazzeth="stamina" gainStat="luck" rollStat="stamina" chooseItems="1">
 		<text>
 			##TEST## ##TEST## ##TEST## ##TEST##
 		</text>
-		<battle>
+		<battle rollToDamage="2">
 			<enemy skill="4" stamina="5"></enemy>
+			<roll value="<skill" damage="2"></roll>
 			<win pageNum="win"></win>
 			<lose pageNum="lose"></lose>
 		</battle>
+	 	<lucky pageNum="lucky"></lucky>
+        <unlucky pageNum="unlucky"></unlucky>
+        <option pageNum="1"></option>
+        <option pageNum="2"></option>
+        <option pageNum="3"></option>
+        <item name="Jewelled Sword" attribute="skill">
+        	<skill value="1"></skill>
+        </item>
+        <item name="Gem" goldValue="25"></item>
+        <item name="Gem" goldValue="25"></item>
+        <roll value="1,2,3,4,5" pageNum="1"></roll>
+        <roll value="6,7,8,9,10,11,12" pageNum="2"></roll>
+        <haveItem pageNum="haveItem"></haveItem>
+	    <dontHaveItem pageNum="dontHaveItem"></dontHaveItem>
+	    <galStamina value="-2"></galStamina>
+	    <nextPage pageNum="nextPage"></nextPage>
+	    <luck value ="1"></luck>
+	    <stamina value="-roll"></stamina>
 	</page>
 </book>
