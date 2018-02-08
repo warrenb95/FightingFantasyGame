@@ -978,4 +978,46 @@
  		<option pageNum="112"></option>
  	</page> 
 
+ 	<page pageNum="76" testLuck="1">
+ 		<text>
+ 			You realize that you are heavily outnumbered, but if you can get close enough
+ 			to Galthazzeth without being noticed, you may be able to kill him and escape in the resulting confusion. You duck behind a pile of crates, hardly daring to breath. After a few seconds, you launch yourself towards the beanch in a crouching run. Test your Luck. If you are Lucky, turn to 29. If you are unlucky, turn to 152.
+		</text>
+		<lucky pageNum="29"></lucky>
+		<unlucky pageNum="152"></unlucky>
+	</page>
+
+	<page pageNum="77" options="1">
+		<text>
+			The door opens into a short passage, from which a spiral staircase leads upwards. To go up the strairs, turn to 35. Alternatively, return to 182 and choose another option.
+		</text>
+		<option pageNum="35"></option>
+		<option pageNum="182"></option>
+	</page>
+
+
+	<page pageNum="78">
+		<text>
+			This room is littered with gnawed bones, some of which seem to be human, and various other pieces of foul-smelling rubbish; but there is nothing of interest here. Return to 112 and choose another direction.
+		</text>
+		<nextPage pageNum="112"></nextPage>
+	</page>
+
+	<page pageNum="79" battle="together">
+		<text>
+			While you were fighting, two more disgusting Slime Figures have emerged from the tank. Reduce the Clone Slime's STAMINA by 10 points.
+			You must fight both figures as a pair again. 
+
+			First SLIME FIGURE	SKILL 3	STAMINA 5
+			Second SLIME FIGURE	SKILL 3	STAMINA 5
+
+			If you defeat them, turn to 175.
+		</text>
+		<battle>
+			<enemy skill="3" stamina="5"></enemy>
+			<enemy skill="3" stamina="5"></enemy>
+			<win pageNum="175"></win>
+		</battle>
+	</page>
+
 </book>
