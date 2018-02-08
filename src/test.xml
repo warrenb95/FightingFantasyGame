@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <book>
-	<page pageNum="test" battle="single" testLuck="1" options="1" damage="rollDice" items="3" rollForNextPage="2" constraint="weapon-magical" galthazzeth="stamina" gainStat="luck" rollStat="stamina" chooseItems="1">
+	<page pageNum="test" battle="single" testLuck="1" options="1" damage="rollDice" items="3" rollForNextPage="2" 
+	constraint="weapon-magical" galthazzeth="stamina" gainStat="luck" rollStat="stamina" chooseItems="1">
+		<text>
+			##TEST## ##TEST## ##TEST## ##TEST##
+		</text>
+		<text>
+			##TEST## ##TEST## ##TEST## ##TEST##
+		</text>
 		<text>
 			##TEST## ##TEST## ##TEST## ##TEST##
 		</text>
