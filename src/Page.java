@@ -34,25 +34,50 @@ public class Page {
 		
 		printText(page);
 		
+		if (hasOptions(page)) {
+			nextPage = pickOption(page);
+			System.out.println("hasOptions");
+		}
+		
 		if (hasTestLuck(page)) {
 			nextPage = testLuck(page, player);
-		}  else if (hasTakeDamage(page)) {
+			System.out.println("hasTestLuck");
+		}  
+		
+		if (hasTakeDamage(page)) {
 			takeDamage(page, player);
-		} else if (hasRollStat(page, player)) {
+			System.out.println("hasTakeDamage");
+		} 
+		
+		if (hasRollStat(page, player)) {
 			handleRollStat(page, player);
-		} else if (hasRollForNextPage(page)) {
+			System.out.println("hasRollStat");
+		} 
+		
+		if (hasRollForNextPage(page)) {
 			nextPage = diceRollForNextPage(page, player);
-		} else if (hasItems(page)) {
+			System.out.println("hasRollForNextPage");
+		} 
+		
+		if (hasItems(page)) {
 			player.pickUpItems(getItems(page));
-		} else if (hasGainStat(page)) {
+			System.out.println("hasItems");
+		} 
+		
+		if (hasGainStat(page)) {
 			gainStat(page, player);
-		} else if (hasOptions(page)) {
-			nextPage = pickOption(page);
-		} else if (hasBattle(page)) {
+			System.out.println("hasGainStat");
+		} 
+		
+		if (hasBattle(page)) {
 			victory = battle(page, player);
 			nextPage = battleNextPage(page, victory);
-		} else if (hasNextPage(page)) {
+			System.out.println("hasBattle");
+		} 
+		
+		if (hasNextPage(page)) {
 			findNextPage(page);
+			System.out.println("hasNextPage");
 		}
 		
 		System.out.println("Next page: "+ nextPage);
@@ -94,10 +119,13 @@ public class Page {
 	// Prints the text of the current page
 	public void printText(Element page) {
 		List<Element> text = page.getChildren("text");
+		System.out.println("\t\t+-----------------------------------------------------+");
 		
 		for (Element t : text) {
 			System.out.println(t.getText());
 		}
+		
+		System.out.println("\t\t+-----------------------------------------------------+");
 	}
 	
 	// Query page for test luck attribute
@@ -196,11 +224,20 @@ public class Page {
 	
 	// Player takes the damage
 	public void takeDamage(Element page, Player player) {
-		int damage = Integer.parseInt(page.getAttributeValue("damage"));
+		String damageAttribute = page.getAttributeValue("damage");
+		int damage = 0;
+		
+		if (damageAttribute.equals("rollDice")) {
+			
+			damage = player.rollDice();
+			player.takeDamage(damage);
+		} else {
+			damage = Integer.parseInt(damageAttribute);
+			player.takeDamage(damage);
+		}
 		
 		System.out.println("Damage taken: " + damage);
 		
-		player.takeDamage(damage);
 	}
 	
 	// Query page for battle attribute
@@ -359,9 +396,19 @@ public class Page {
 	// Handle the dice roll on the page
 	public void handleRollStat(Element page, Player player) {
 		String stat =  page.getAttributeValue("rollStat");
-		int value = Integer.parseInt(page.getChild(stat).getAttributeValue("value"));
+		String value = page.getChild(stat).getAttributeValue("value");
 		
-		player.changeStat(stat, value);
+		if (value.equals("-roll")) {
+			player.changeStat(stat, player.rollDice());
+		} else if (value.equals("+roll")) {
+			player.changeStat(stat, -(player.rollDice()));
+		} else {
+			int intValue = Integer.parseInt(value);
+			
+			player.changeStat(stat, intValue);
+		}
+		
+		
 	}
 	
 	// Query page for items attribute
@@ -433,7 +480,7 @@ public class Page {
 	}
 	
 	public void gainStat(Element page, Player player) {
-		String stat =  page.getAttributeValue("gain");
+		String stat =  page.getAttributeValue("gainStat");
 		int value = Integer.parseInt(page.getChild(stat).getAttributeValue("value"));
 		
 		player.changeStat(stat, value);

@@ -93,8 +93,8 @@ public class Battle {
 			int enemySkill = enemy.getSkill() + enemy.rollDice() + enemy.rollDice();
 			int playerSkill = player.getSkill() + player.rollDice() + player.rollDice();
 			
-			System.out.printf("[Player skill: %s]\t[Player stamina: %s]\n", playerSkill, player.getStamina());
-			System.out.printf("[Enemy skill: %s]\t[Enemy stamina: %s]\n", enemySkill, enemy.getStamina());
+			System.out.printf("\n\n\t\t[Player skill: %s]\t[Player stamina: %s]\n", playerSkill, player.getStamina());
+			System.out.printf("\t\t[Enemy skill: %s]\t[Enemy stamina: %s]\n\n", enemySkill, enemy.getStamina());
 			
 			if (playerSkill > enemySkill) {
 				

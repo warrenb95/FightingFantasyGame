@@ -78,6 +78,10 @@ public class Player {
 	
 	public boolean testLuck() {
 		
+		System.out.println("Hit enter key to test luck...");
+		Scanner reader = new Scanner(System.in);
+		reader.nextLine();
+		
 		int score = rollDice() + rollDice();
 		
 		if(luck >= score) {
