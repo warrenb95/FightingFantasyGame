@@ -1159,4 +1159,51 @@
 		</text>
 		<nextPage pageNum="4"></nextPage>
 	</page>
+	
+	<page pageNum="91" options="1">
+		<text>
+			The door opens on to a large, rocky chamber littered with rubble, a
+			broken cart and other debris. A brief search doesn't turn up anything
+			valuable. A passage leads off westwards; to follow it, turn to 112.
+
+			Alternatively, you may return through the north door and head east
+			(turn to 42) or west (turn to 170) or try the door on the other side 
+			(turn to 8).
+		</text>
+		<option pageNum="112"></option>
+		<option pageNum="42"></option>
+		<option pageNum="170"></option>
+		<option pageNum="8"></option>
+	</page>
+	
+	<page pageNum="92" testLuck="1">
+		<text>
+			Hate makes your throw go astray, and you can only dodge to one 
+			side as a bolt of blue energy screams towards you. Test your Luck.  
+			If you are Lucky , turn to 139. If you are Unlucky, turn to 45.
+		</text>
+		<lucky pageNum="139"></lucky>
+		<unlucky pageNum="45"></unlucky>
+	</page>
+	
+	<page pageNum="93" battle="group-single">
+		<text>
+			One Goblin engages you in battle while the others arm themselves.
+			
+			First GOBLIN	SKILL 5   STAMINA 5
+			
+			After one round, the others will attack you too!
+			
+			Second GOBLIN	SKILL 5   STAMINA 5
+			Third GOBLIN	SKILL 5 STAMINA 4
+			
+			Roll one Attack Strength for yourself and one for each Goblin. 
+			Each Goblin who scores higher than you will wound you. 
+			You may roll higher, but you can injure only one of the Goblins in any one round.
+			If you win, turn to 155.
+		</text>
+		<enemy skill="5" stamina="5"></enemy>
+		<enemy skill="5" stamina="5"></enemy>
+		<enemy skill="5" stamina="4"></enemy>
+	</page>
 </book>
