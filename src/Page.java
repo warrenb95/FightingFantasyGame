@@ -34,15 +34,18 @@ public class Page {
 		
 		printText(page);
 		
-		if (hasOptions(page)) {
-			nextPage = pickOption(page);
-			System.out.println("hasOptions");
-		}
+		pause();
+		
+		if (hasBattle(page)) {
+			victory = battle(page, player);
+			nextPage = battleNextPage(page, victory);
+			System.out.println("hasBattle");
+		} 
 		
 		if (hasTestLuck(page)) {
 			nextPage = testLuck(page, player);
 			System.out.println("hasTestLuck");
-		}  
+		} 
 		
 		if (hasTakeDamage(page)) {
 			takeDamage(page, player);
@@ -57,22 +60,21 @@ public class Page {
 		if (hasRollForNextPage(page)) {
 			nextPage = diceRollForNextPage(page, player);
 			System.out.println("hasRollForNextPage");
-		} 
-		
-		if (hasItems(page)) {
-			player.pickUpItems(getItems(page));
-			System.out.println("hasItems");
-		} 
+		}
 		
 		if (hasGainStat(page)) {
 			gainStat(page, player);
 			System.out.println("hasGainStat");
-		} 
+		}
 		
-		if (hasBattle(page)) {
-			victory = battle(page, player);
-			nextPage = battleNextPage(page, victory);
-			System.out.println("hasBattle");
+		if (hasOptions(page)) {
+			nextPage = pickOption(page);
+			System.out.println("hasOptions");
+		}
+		
+		if (hasItems(page)) {
+			player.pickUpItems(getItems(page));
+			System.out.println("hasItems");
 		} 
 		
 		if (hasNextPage(page)) {
@@ -85,6 +87,12 @@ public class Page {
 		return nextPage;
 	}
 	
+	private void pause() {
+		System.out.print("Press enter key to continue...");
+		Scanner reader = new Scanner(System.in);
+		reader.nextLine();
+	}
+
 	// Finds the page to be displayed and returns it
 	public Element findPage(String nextPage) {
 		SAXBuilder builder = new SAXBuilder();
