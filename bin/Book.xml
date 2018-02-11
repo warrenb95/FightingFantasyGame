@@ -102,7 +102,7 @@
             If you win, turn to 174.
         </text>
         <battle wins="2">
-        	<enemy stamina="15" skill="10"></enemy>
+        	<enemy name="galthazzeth"></enemy>
         	<win pageNum="174"></win>
             <lose pageNum="28"></lose>
         </battle>
@@ -143,6 +143,7 @@
             in the tank rises up in a column and shoots out a tentacle at you.
             
             CLONE SLIME   SKILL 4   STAMINA 30
+            
             Fight three rounds then turn to 197.
         </text>
         <battle turns="3">
@@ -192,7 +193,7 @@
 	<nextPage pageNum="8"></nextPage>
 	</page>
     
-    <page pageNum="12">
+    <page pageNum="12" options="1">
         <text>
             You head south along the passage. After a few paces, you notice a door in the east wall. 
             Further south is a crossroads. To open the door, turn to 75. To continue as far as the junction,
@@ -237,6 +238,7 @@
 			
 			First ANTMAN	SKILL 6 STAMINA 8
 			Second ANTMAN	SKILL 6	STAMINA 7
+			
 			If you win, turn to 182.
     	</text>
     	<battle>
@@ -246,7 +248,7 @@
    		</battle>
     </page>
 	
-	<page pageNum="16">
+	<page pageNum="16" items="1">
 		<text>
 			At last the Goblin Shaman dies. A swift search of the body yields a few items of interest: 7 Gold Pieces, 
 			a small leather flask and a scroll. The flask holds a fizzing blue liquid which smells vaguely of fish. 
@@ -255,6 +257,9 @@
 			'Firestorm'. Now, to leave by the north door, turn to 20. To return to the crossroads and choose another 
 			direction, turn to 112.
 		</text>
+		<item name="gold" goldValue="7"></item>
+		<item name="Small leather flask" dose="2" pageNum="172"></item>
+		<item name="firestorm"></item>
 		<nextPage pageNum="112"></nextPage>
 	</page>
 	
@@ -295,7 +300,7 @@
 		<option pageNum="93"></option>
 	</page>
 	
-	<page pageNum="20" constraint="scroll-Firestorm">
+	<page pageNum="20" constraint="scroll-firestorm">
 		<text>
 			You go through the north door into a large room. It seems to be some kind of temple; 
 			a statue of a vicious, powerful-looking Goblin, about two metres tall, stands at the 
@@ -474,7 +479,7 @@
 	
 	<page pageNum="34" options="1">
 		<text>
-			'Pahl' spits the Ghost. 'Just because I'm dead doesn't mean I'm stupid!
+			'Pah' spits the Ghost. 'Just because I'm dead doesn't mean I'm stupid!
 		 	Do you really expect me to believe that?' What will you do now; 
 			attack the Ghost (turn to 9), run away (turn to 170) or return 
 			to 147 and choose another story?
@@ -523,9 +528,9 @@
 			(turn to 78) or return to 112 and choose another direction?
 		</text>
 		<item name="gold" goldValue="7"></item>
-		<item name="Gem" goldValue="25"></item>
-		<item name="Gem" goldValue="25"></item>
-		<item name="Firestrom"></item>
+		<item name="gem" goldValue="25"></item>
+		<item name="gem" goldValue="25"></item>
+		<item name="firestrom"></item>
 		<option pageNum="78"></option>
 		<options pageNum="112"></options>
 	</page>
@@ -544,7 +549,7 @@
 		<luck value ="1"></luck>
 	</page>
 	
-	<page pageNum="39" constraint="item-G rune">
+	<page pageNum="39" constraint="item-g rune">
 		<text>
 			The small crowd of Antmen parts and four Zombies come lumbering towards you.
 			 Do you have anything inscribed with a G-rune? If you have, turn to 130; 
@@ -582,9 +587,9 @@
 
 	<page pageNum="42" options="1">
 		<text>
-			You walk to the comer then tum northwards. After a few metres, you find
+			You walk to the comer then turn northwards. After a few metres, you find
 			 a passage leading to the east; the main passage ends at a door,
-			a few steps further on. To head east, tum to 165. To continue north,
+			a few steps further on. To head east, turn to 165. To continue north,
 			turn to 52. Or you can return to 103 and choose another way.
 		</text>
 		<option pageNum="165"></option>
@@ -620,7 +625,8 @@
 
 	<page pageNum="45" damage="rollDice">
 		<text>
-			You are not quick enough to avoid the energy bolt. Roll one die and lose that many STAMINA points. If you are still alive, turn to 4 and continue the battle.
+			You are not quick enough to avoid the energy bolt. Roll one die and lose that many 
+			STAMINA points. If you are still alive, turn to 4 and continue the battle.
 		</text>
 		<nextPage pageNum="4"></nextPage>
 	</page>
@@ -723,7 +729,7 @@
 			at you! Roll two dice. If the total rolled is less than or equal to your SKILL, 
 			turn to 46. If it is higher, turn to 164.
 		</text>
-		<roll pageNum="46" value="<skill"></roll>
+		<roll pageNum="46" value="<=skill"></roll>
 		<roll pageNum="164" value=">skill"></roll>
 	</page>
 	
@@ -766,7 +772,7 @@
 
 			WHIP	SKILL 9   STAMINA­
 
-			Resolve one round of combat, then tum to 17
+			Resolve one round of combat, then turn to 17
 		</text>
 		<battle turns="1">
 			<enemy skill="9" stamina="10"></enemy>
@@ -806,7 +812,7 @@
 		<nextPage pageNum="114"></nextPage>
 	</page>
 
-	<page pageNum="61">
+	<page pageNum="61" testLuck="1">
 		<text>
 			The monstrous Beetle finally collapses! You take a deep breath,
 			clean the vile thing's green blood from your sword and quickly search	I
@@ -905,7 +911,7 @@
 			paragraph. If your LUCK score is 2 or less, turn to 160.
 		</text>
 		<lucky pageNum="193"></lucky>
-		<luckStat value="2=>" pageNum="160"></luckStat>
+		<luckStat value="<=2" pageNum="160"></luckStat>
 		<unlucky pageNum="68"></unlucky>
 	</page>
 	
@@ -958,7 +964,7 @@
 		<unlucky pageNum="169"></unlucky>
 	</page>
 
-	<page pageNum="74">
+	<page pageNum="74" testLuck="1">
 		<text>
 			The maze is very complex, twisting and turning all over the place. Without a map you 
 			soon become hopelessly lost. Test your Luck. If you are Lucky, turn to 193. If you are 
@@ -978,7 +984,7 @@
 			 or return to the crossroads (turn to 112) and choose another way.
 		</text>
  		<roll pageNum="19" value="1,6"></roll>
- 		<roll pageNum="75" value="2,3,4,5" damage="1"></roll>
+ 		<roll value="2,3,4,5" damage="1"></roll>
  		<option pageNum="75"></option>
  		<option pageNum="198"></option>
  		<option pageNum="112"></option>
@@ -986,10 +992,10 @@
 
  	<page pageNum="76" testLuck="1">
  		<text>
- 			You realize that you are heavily outnumbered, but if you can get close enough
+ 			You realize that you are heavily out numbered, but if you can get close enough
  			to Galthazzeth without being noticed, you may be able to kill him and escape in
  			 the resulting confusion. You duck behind a pile of crates, hardly daring to breath. 
- 			 After a few seconds, you launch yourself towards the beanch in a crouching run. 
+ 			 After a few seconds, you launch yourself towards the bench in a crouching run. 
  			 Test your Luck. If you are Lucky, turn to 29. If you are unlucky, turn to 152.
 		</text>
 		<lucky pageNum="29"></lucky>
@@ -999,7 +1005,7 @@
 	<page pageNum="77" options="1">
 		<text>
 			The door opens into a short passage, from which a spiral staircase leads
-			 upwards. To go up the strairs, turn to 35. Alternatively, return to 182 and 
+			 upwards. To go up the stairs, turn to 35. Alternatively, return to 182 and 
 			 choose another option.
 		</text>
 		<option pageNum="35"></option>
@@ -1205,5 +1211,79 @@
 		<enemy skill="5" stamina="5"></enemy>
 		<enemy skill="5" stamina="5"></enemy>
 		<enemy skill="5" stamina="4"></enemy>
+	</page>
+	
+	<page pageNum="94" rollForNextPage="2">
+		<text>
+			You try to retrace your route. Roll 2 dice. If the total is less 
+			than or equal to your SKILL, turn to 200. Otherwise, turn to 153.
+		</text>
+		<roll value="<=skill" pageNum="200"></roll>
+		<roll value=">skill" pageNum="153"></roll>
+	</page>
+	
+	<page pageNum="95" options="1"> 
+		<text>
+			You search the room thoroughly, but find nothing beyond a great deal of dust 
+			and insects. You may leave either via the door in the north wall (turn to 20) 
+			or by returning east (turn to 112).
+		</text>
+		<option pageNum="20"></option>
+		<option pageNum="112"></option>
+	</page>
+	
+	<page pageNum="96" items="1" options="1">
+		<text>
+			The chest contains 12 Gold Pieces, a filthy and foul-smelling package,
+			and a vial with a potion in it. This is a Potion of Fortune, with enough 
+			for two doses. If you want to open the package, turn to 176.
+			Otherwise, return to 155.
+		</text>
+		<item name="Potion of Fortune" dose="2"></item>
+		<item name="gold" goldValue="12"></item>
+	</page>
+	
+	<page pageNum="97" battle="single">
+		<text>
+			The Antman has seen you; it whips its abdomen around and fires a spray of acid at you. 
+			Roll your Attack Strengths as usual: if you win, you have avoided the spray; if you 
+			lose, Test your Luck. If you are Lucky , the spray has not hit your eyes; deduct 1 point 
+			from your STAMINA. If you are Unlucky, you are blinded for a moment; deduct 2 points 
+			from your SKILL and 2 from your STAMINA. Now you may close with the Antman and fight 
+			as normal.
+			
+			ANTMAN	SKILL 5	STAMINA 8
+			
+			If you win, turn to 62.
+		</text>
+	</page>
+	
+	<page pageNum="98" rollForNextPage="2">
+		<text>
+			You jump up from your hiding-place and throw your weapon at Galthazzeth.
+			Roll two dice. If the total is less than or equal to your SKILL,
+			turn to 31. Otherwise, turn to 116.
+		</text>
+		<roll value="<=skill" pageNum="31"></roll>
+		<roll value=">skill" pageNum="116"></roll>
+	</page>
+	
+	<page pageNum="99" options="1">
+		<text>
+			The passage leads east for some way before turning south. After a few metres, you 
+			see a door set in the west wall; the passage continues for some way, before turning east. 
+			To follow the passage, turn to 183. To open the door, turn to 47. Alternatively, 
+			you may retrace your steps; turn to 83.
+		</text>
+		<option pageNum="183"></option>
+		<option pageNum="47"></option>
+		<option pageNum="83"></option>
+	</page>
+	
+	<page pageNum="100">
+		<text>
+			You hear nothing. Return to 182 and choose another option.
+		</text>
+		<nextPage pageNum="182"></nextPage>
 	</page>
 </book>
