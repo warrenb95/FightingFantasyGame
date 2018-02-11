@@ -359,10 +359,18 @@ public class Page {
 		
 		for (Element roll : rollList) {
 			if (roll.getAttributeValue("value") == "<skill") {
+				if (diceValue < player.getSkill()) {
+					nextPage = roll.getAttributeValue("pageNume");
+				}
+			} else if (roll.getAttributeValue("value") == "<=skill") {
 				if (diceValue <= player.getSkill()) {
 					nextPage = roll.getAttributeValue("pageNume");
 				}
 			} else if (roll.getAttributeValue("value") == ">skill") {
+				if (diceValue > player.getSkill()) {
+					nextPage = roll.getAttributeValue("pageNume");
+				} 
+			} else if (roll.getAttributeValue("value") == ">=skill") {
 				if (diceValue >= player.getSkill()) {
 					nextPage = roll.getAttributeValue("pageNume");
 				} 
@@ -375,7 +383,6 @@ public class Page {
 						nextPage = roll.getAttributeValue("pageNume");
 					}
 				}
-				
 			}
 		}
 		
