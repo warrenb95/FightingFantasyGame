@@ -6,6 +6,12 @@ import java.util.Scanner;
  */
 public class Battle {
 	
+	private void pause() {
+		System.out.print("Press enter key to continue...");
+		Scanner reader = new Scanner(System.in);
+		reader.nextLine();
+	}
+	
 	// Fighting a single enemy or multiple enemies in turn 
 	public boolean fightSingle(Player player, List<Enemy> enemies, String battleType) {
 		boolean victory = false;
@@ -96,6 +102,8 @@ public class Battle {
 			System.out.printf("\n\n\t\t[Player skill: %s]\t[Player stamina: %s]\n", playerSkill, player.getStamina());
 			System.out.printf("\t\t[Enemy skill: %s]\t[Enemy stamina: %s]\n\n", enemySkill, enemy.getStamina());
 			
+			pause();
+			
 			if (playerSkill > enemySkill) {
 				
 				System.out.println("You have won the round!!");
@@ -136,7 +144,6 @@ public class Battle {
 			
 			System.out.println("\n\n\n");
 		}
-		
 		return victory;
 	}
 	
@@ -153,6 +160,11 @@ public class Battle {
 			
 			int enemySkill = enemy.getSkill() + enemy.rollDice() + enemy.rollDice();
 			int playerSkill = player.getSkill() + player.rollDice() + player.rollDice();
+			
+			System.out.printf("\n\n\t\t[Player skill: %s]\t[Player stamina: %s]\n", playerSkill, player.getStamina());
+			System.out.printf("\t\t[Enemy skill: %s]\t[Enemy stamina: %s]\n\n", enemySkill, enemy.getStamina());
+			
+			pause();
 			
 			if (playerSkill > enemySkill) {
 				System.out.println("You have won the round!!");
@@ -192,7 +204,6 @@ public class Battle {
 			
 			battleTurns++;
 		}
-		
 		return victory;
 	}
 	
@@ -208,6 +219,11 @@ public class Battle {
 			
 			int enemySkill = enemy.getSkill() + enemy.rollDice() + enemy.rollDice();
 			int playerSkill = player.getSkill() + player.rollDice() + player.rollDice();
+			
+			System.out.printf("\n\n\t\t[Player skill: %s]\t[Player stamina: %s]\n", playerSkill, player.getStamina());
+			System.out.printf("\t\t[Enemy skill: %s]\t[Enemy stamina: %s]\n\n", enemySkill, enemy.getStamina());
+			
+			pause();
 			
 			if (playerSkill > enemySkill) {
 				playerWins++;
