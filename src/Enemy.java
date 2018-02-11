@@ -2,16 +2,22 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Enemy {
 	
+	private String name;
 	private int skill;
 	private int stamina;
 	
-	Enemy(int enemySkill, int enemyStamina){
+	Enemy(String enemyName, int enemySkill, int enemyStamina){
+		name = enemyName;
 		skill = enemySkill;
 		stamina = enemyStamina;
 	}
 	
 	public int rollDice() {
 		return ThreadLocalRandom.current().nextInt(1, 6 + 1);
+	}
+	
+	public int attack() {
+		return skill + rollDice() + rollDice();
 	}
 	
 	public int getStamina() {

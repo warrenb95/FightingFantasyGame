@@ -28,7 +28,7 @@ public class Page {
 	boolean victory = false;
 	
 	// This reads all of the information on a page
-	public String readPage(String nextPage, Player player, Enemy galthazzeth) {
+	public String readPage(String nextPage, Player player, HashMap<String, Enemy> enemies) {
 		
 		Element page = findPage(nextPage);
 		
