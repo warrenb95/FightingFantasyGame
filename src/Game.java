@@ -8,7 +8,7 @@ public class Game {
 		
 		String nextPage = "test";
 		
-			while(player.isAlive() && galthazzeth.isAlive())
+			while(player.isAlive())
 			{	
 				
 				System.out.println("Stamina before: "+ player.getStamina());
