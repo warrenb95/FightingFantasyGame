@@ -56,7 +56,7 @@ public class Battle {
 				enemyStamina += enemy.getStamina();
 			}
 			
-			Enemy newEnemy = new Enemy(enemySkill, enemyStamina);
+			Enemy newEnemy = new Enemy("", enemySkill, enemyStamina);
 			
 			// Commence the battle
 			victory = battleDefault(player, newEnemy);
@@ -75,7 +75,7 @@ public class Battle {
 			enemySkill += enemy.getSkill();
 			enemyStamina += enemy.getStamina();
 		}
-		Enemy newEnemy = new Enemy(enemySkill, enemyStamina);
+		Enemy newEnemy = new Enemy("", enemySkill, enemyStamina);
 		
 		if (battleType.equals("turns")) {
 			// Battle turns

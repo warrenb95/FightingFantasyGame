@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.lang.String;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -267,10 +268,12 @@ public class Page {
 		List<Enemy> enemies = new ArrayList<>(); 
 		
 		for (Element element : enemyElements) {
+			
+			String name = element.getAttributeValue("name");
 			int skill = Integer.parseInt(element.getAttributeValue("skill"));
 			int stamina = Integer.parseInt(element.getAttributeValue("stamina"));
 			
-			Enemy enemy = new Enemy(skill,stamina);
+			Enemy enemy = new Enemy(name, skill, stamina);
 			
 			enemies.add(enemy);
 		}

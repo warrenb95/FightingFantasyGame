@@ -147,7 +147,7 @@
             Fight three rounds then turn to 197.
         </text>
         <battle turns="3">
-        	<enemy stamina="30" skill="4"></enemy>
+        	<enemy name="CLONE SLIME" stamina="30" skill="4"></enemy>
         	<win pageNum="197"></win>
             <lose pageNum="197"></lose>
         </battle>
@@ -242,8 +242,8 @@
 			If you win, turn to 182.
     	</text>
     	<battle>
-    		<enemy skill="6" stamina="8"></enemy>
-    		<enemy skill="6" stamina="7"></enemy>
+    		<enemy name="First ANTMAN" skill="6" stamina="8"></enemy>
+    		<enemy name="Second ANTMAN" skill="6" stamina="7"></enemy>
     		<win pageNum="182"></win>
    		</battle>
     </page>
@@ -275,7 +275,7 @@
 			Resolve this round, then turn to 145.
 		</text>
 		<battle  turns="1">
-			<enemy skill="9" stamina="100"></enemy>
+			<enemy name="WHIP" skill="9" stamina="100"></enemy>
 			<win pageNum="145"></win>
 		</battle>
 	</page>
